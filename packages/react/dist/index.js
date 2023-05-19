@@ -1,3 +1,3 @@
-export * from './components/generated';
-export { defineCustomElements } from "@prismaui/core/loader";
+import { createReactComponent } from './react-component-lib';
+export const PrmButton = createReactComponent('prm-button');
 //# sourceMappingURL=index.js.map
