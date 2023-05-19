@@ -14,7 +14,7 @@
   },
   "files": [
     "dist",
-    "dist-transpiled"
+    "lib"
   ],
   "publishConfig": {
     "access": "public",
