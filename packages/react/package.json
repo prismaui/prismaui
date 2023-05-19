@@ -1,0 +1,44 @@
+{
+  "name": "@prismaui/react",
+  "version": "0.0.1-alpha.2",
+  "description": "> TODO: description",
+  "author": "mehrabix <mehrabi@post.com>",
+  "homepage": "https://github.com/prismaui/prismaui#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "dist-transpiled"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@prismaui/core": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prismaui/prismaui.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/react-library.test.js",
+    "build": "npm run tsc",
+    "tsc": "tsc -p ."
+  },
+  "bugs": {
+    "url": "https://github.com/prismaui/prismaui/issues"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.4"
+  }
+}
