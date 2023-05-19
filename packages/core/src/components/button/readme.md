@@ -14,7 +14,7 @@
 | `disabled`     | `disabled`     |             | `boolean`                                                                                       | `false`     |
 | `loading`      | `loading`      |             | `string`                                                                                        | `''`        |
 | `outline`      | `outline`      |             | `boolean`                                                                                       | `false`     |
-| `round`        | `round`        |             | `"full" \| "lg" \| "md" \| "none" \| "sm" \| "xl"`                                              | `'none'`    |
+| `round`        | `round`        |             | `"full" \| "lg" \| "md" \| "none" \| "sm" \| "xl"`                                              | `'md'`      |
 | `size`         | `size`         |             | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                                          | `'md'`      |
 | `variant`      | `variant`      |             | `"danger" \| "dark" \| "info" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 
