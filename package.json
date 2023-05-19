@@ -4,7 +4,7 @@
   "scripts": {
     "start": "lerna run start --scope @prismaui/core",
     "story": "lerna run story --scope @prismaui/core",
-    "build:all": "lerna run build --concurrency=1",
+    "build:all": "lerna run build --concurrency=1 && lerna run build:story --scope @prismaui/core ",
     "build:core": "lerna run build --scope @prismaui/core",
     "build:story": "lerna run build:story --scope @prismaui/core",
     "build:angular": "lerna run build --scope @prismaui/angular",
