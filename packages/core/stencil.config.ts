@@ -14,10 +14,10 @@ export const config: Config = {
   minifyJs: true,
   enableCache: true,
   globalStyle:'src/global/global.scss',
-  transformAliasedImportPaths: true,
-  extras: {
-    experimentalImportInjection: true,
-  },
+  // transformAliasedImportPaths: true,
+  // extras: {
+  //   experimentalImportInjection: true,
+  // },
   plugins: [
     sass({ injectGlobalPaths: ['src/global/global.scss'] })
   ],
