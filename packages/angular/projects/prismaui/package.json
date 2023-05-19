@@ -1,0 +1,13 @@
+{
+  "name": "@prismaui/angular",
+  "version": "0.0.1-alpha.2",
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@prismaui/core":"*"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
