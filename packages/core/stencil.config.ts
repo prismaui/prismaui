@@ -6,7 +6,18 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
   namespace: 'Prismaui',
+  autoprefixCss: true,
+  taskQueue: 'async',
+  sourceMap: false,
+  buildEs5: 'prod',
+  minifyCss: true,
+  minifyJs: true,
+  enableCache: true,
   globalStyle:'src/global/global.scss',
+  transformAliasedImportPaths: true,
+  extras: {
+    experimentalImportInjection: true,
+  },
   plugins: [
     sass({ injectGlobalPaths: ['src/global/global.scss'] })
   ],
@@ -37,6 +48,10 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
+    },
+    {
+      type: 'dist-hydrate-script',
+      dir: 'dist/hydrate',
     },
   ],
 };
