@@ -14,7 +14,6 @@ export const PrmButton = /*@__PURE__*/ defineContainer<JSX.PrmButton>('prm-butto
   'round',
   'disabled',
   'customclass',
-  'ariacontrols',
   'loading',
   'outline',
   'onclick'

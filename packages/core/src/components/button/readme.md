@@ -7,16 +7,15 @@
 
 ## Properties
 
-| Property       | Attribute      | Description | Type                                                                                            | Default     |
-| -------------- | -------------- | ----------- | ----------------------------------------------------------------------------------------------- | ----------- |
-| `ariacontrols` | `ariacontrols` |             | `string`                                                                                        | `''`        |
-| `customclass`  | `customclass`  |             | `string`                                                                                        | `''`        |
-| `disabled`     | `disabled`     |             | `boolean`                                                                                       | `false`     |
-| `loading`      | `loading`      |             | `string`                                                                                        | `''`        |
-| `outline`      | `outline`      |             | `boolean`                                                                                       | `false`     |
-| `round`        | `round`        |             | `"full" \| "lg" \| "md" \| "none" \| "sm" \| "xl"`                                              | `'md'`      |
-| `size`         | `size`         |             | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                                          | `'md'`      |
-| `variant`      | `variant`      |             | `"danger" \| "dark" \| "info" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| Property      | Attribute     | Description | Type                                                                                            | Default     |
+| ------------- | ------------- | ----------- | ----------------------------------------------------------------------------------------------- | ----------- |
+| `customclass` | `customclass` |             | `string`                                                                                        | `''`        |
+| `disabled`    | `disabled`    |             | `boolean`                                                                                       | `false`     |
+| `loading`     | `loading`     |             | `string`                                                                                        | `''`        |
+| `outline`     | `outline`     |             | `boolean`                                                                                       | `false`     |
+| `round`       | `round`       |             | `"full" \| "lg" \| "md" \| "none" \| "sm" \| "xl"`                                              | `'md'`      |
+| `size`        | `size`        |             | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                                          | `'md'`      |
+| `variant`     | `variant`     |             | `"danger" \| "dark" \| "info" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 
 
 ## Events

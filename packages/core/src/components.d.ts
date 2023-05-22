@@ -7,7 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface PrmButton {
-        "ariacontrols": string;
         "customclass": string;
         "disabled": boolean;
         "loading": string;
@@ -34,7 +33,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface PrmButton {
-        "ariacontrols"?: string;
         "customclass"?: string;
         "disabled"?: boolean;
         "loading"?: string;

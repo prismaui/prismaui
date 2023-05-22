@@ -8,14 +8,14 @@ import { Components } from '@prismaui/core';
 
 
 @ProxyCmp({
-  inputs: ['ariacontrols', 'customclass', 'disabled', 'loading', 'outline', 'round', 'size', 'variant']
+  inputs: ['customclass', 'disabled', 'loading', 'outline', 'round', 'size', 'variant']
 })
 @Component({
   selector: 'prm-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['ariacontrols', 'customclass', 'disabled', 'loading', 'outline', 'round', 'size', 'variant'],
+  inputs: ['customclass', 'disabled', 'loading', 'outline', 'round', 'size', 'variant'],
 })
 export class PrmButton {
   protected el: HTMLElement;

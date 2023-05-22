@@ -13,8 +13,8 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "lib"
+    "dist/*",
+    "lib/*"
   ],
   "publishConfig": {
     "access": "public",

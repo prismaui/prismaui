@@ -5,7 +5,6 @@ export const PrmButton = defineContainer('prm-button', undefined, [
     'round',
     'disabled',
     'customclass',
-    'ariacontrols',
     'loading',
     'outline',
     'onclick'

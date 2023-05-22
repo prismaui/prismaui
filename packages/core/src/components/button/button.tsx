@@ -13,7 +13,7 @@ export class Button {
   @Prop({ reflect: true }) round: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
   @Prop({ reflect: true }) disabled: boolean = false;
   @Prop({ reflect: true }) customclass: string = '';
-  @Prop({ reflect: true }) ariacontrols: string = '';
+  // @Prop({ reflect: true }) ariacontrols: string = '';
   @Prop({ reflect: true }) loading: string = '';
   @Prop({ reflect: true }) outline: boolean = false;
   @Event() onclick: EventEmitter<MouseEvent>;
@@ -34,7 +34,7 @@ export class Button {
         ? `button-outline-${isDisabled ? 'disabled' : this.variant}`
         : `button-${isDisabled ? 'disabled' : this.variant}`}`,
       disabled: isDisabled,
-      'aria-controls': this.ariacontrols,
+      // 'aria-controls': this.ariacontrols,
       'aria-label': buttonLabel,
       onClick: this.handleClick
     };
