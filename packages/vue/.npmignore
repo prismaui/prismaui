@@ -1,6 +1,6 @@
 # Ignore everything
 *
 # Don't ignore the dist folder
-!dist/
+#!dist/
 # Ignore the dist folder itself
-dist
+#dist
