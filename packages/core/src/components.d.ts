@@ -15,6 +15,8 @@ export namespace Components {
         "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
+    interface PrmButtonGroup {
+    }
 }
 export interface PrmButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -27,8 +29,15 @@ declare global {
         prototype: HTMLPrmButtonElement;
         new (): HTMLPrmButtonElement;
     };
+    interface HTMLPrmButtonGroupElement extends Components.PrmButtonGroup, HTMLStencilElement {
+    }
+    var HTMLPrmButtonGroupElement: {
+        prototype: HTMLPrmButtonGroupElement;
+        new (): HTMLPrmButtonGroupElement;
+    };
     interface HTMLElementTagNameMap {
         "prm-button": HTMLPrmButtonElement;
+        "prm-button-group": HTMLPrmButtonGroupElement;
     }
 }
 declare namespace LocalJSX {
@@ -42,8 +51,11 @@ declare namespace LocalJSX {
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
+    interface PrmButtonGroup {
+    }
     interface IntrinsicElements {
         "prm-button": PrmButton;
+        "prm-button-group": PrmButtonGroup;
     }
 }
 export { LocalJSX as JSX };
@@ -51,6 +63,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "prm-button": LocalJSX.PrmButton & JSXBase.HTMLAttributes<HTMLPrmButtonElement>;
+            "prm-button-group": LocalJSX.PrmButtonGroup & JSXBase.HTMLAttributes<HTMLPrmButtonGroupElement>;
         }
     }
 }
