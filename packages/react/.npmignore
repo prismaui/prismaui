@@ -3,4 +3,4 @@
 # Don't ignore the dist folder
 #!dist/
 # Ignore the dist folder itself
-#dist
+dist
