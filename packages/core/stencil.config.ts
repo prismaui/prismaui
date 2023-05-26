@@ -15,9 +15,9 @@ export const config: Config = {
   enableCache: true,
   globalStyle:'src/global/global.scss',
   // transformAliasedImportPaths: true,
-  // extras: {
-  //   experimentalImportInjection: true,
-  // },
+  extras: {
+    experimentalImportInjection: true,
+  },
   plugins: [
     sass({ injectGlobalPaths: ['src/global/global.scss'] })
   ],
