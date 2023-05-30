@@ -10,12 +10,13 @@ export class Button {
 
   @Prop({ reflect: true }) variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
   @Prop({ reflect: true }) size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @Prop({ reflect: true }) round: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
+  @Prop({ reflect: true }) round: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'none';
   @Prop({ reflect: true }) disabled: boolean = false;
   @Prop({ reflect: true }) customclass: string = '';
   // @Prop({ reflect: true }) ariacontrols: string = '';
   @Prop({ reflect: true }) loading: string = '';
   @Prop({ reflect: true }) outline: boolean = false;
+  @Prop({reflect:true}) name:string = ''
   @Event() onclick: EventEmitter<MouseEvent>;
 
   handleClick = (ev: MouseEvent) => {

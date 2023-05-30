@@ -10,17 +10,23 @@ export namespace Components {
         "customclass": string;
         "disabled": boolean;
         "loading": string;
+        "name": string;
         "outline": boolean;
         "round": 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
         "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
     interface PrmButtonGroup {
+        "round": 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
 }
 export interface PrmButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPrmButtonElement;
+}
+export interface PrmButtonGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPrmButtonGroupElement;
 }
 declare global {
     interface HTMLPrmButtonElement extends Components.PrmButton, HTMLStencilElement {
@@ -45,6 +51,7 @@ declare namespace LocalJSX {
         "customclass"?: string;
         "disabled"?: boolean;
         "loading"?: string;
+        "name"?: string;
         "onOnclick"?: (event: PrmButtonCustomEvent<MouseEvent>) => void;
         "outline"?: boolean;
         "round"?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
@@ -52,6 +59,8 @@ declare namespace LocalJSX {
         "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
     interface PrmButtonGroup {
+        "onOnclick"?: (event: PrmButtonGroupCustomEvent<MouseEvent>) => void;
+        "round"?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
     interface IntrinsicElements {
         "prm-button": PrmButton;

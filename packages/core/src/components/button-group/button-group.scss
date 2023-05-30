@@ -2,12 +2,39 @@
     display: inline-block;
 }
 
+
 .button-group {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-::slotted(prm-button) {
-    margin: 0;
+.button-group.round-none {
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.button-group.round-sm {
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.button-group.round-md {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.button-group.round-lg {
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.button-group.round-xl {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.button-group.round-full {
+    border-radius: 9999px;
+    overflow: hidden;
 }
