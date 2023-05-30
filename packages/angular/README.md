@@ -1,27 +1,84 @@
-# Angular
+## Installation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+```shell
+npm install @prismaui/angular
 
-## Development server
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Configuration
 
-## Code scaffolding
+Import and include the PrismauiModule in your app.module.ts file:
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { PrismauiModule } from '@prismaui/angular';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@NgModule({
+  declarations: [/* your components */],
+  imports: [BrowserModule, PrismauiModule],
+  providers: [],
+  bootstrap: [/* your root component */]
+})
+export class AppModule { }
 
-## Build
+## Custom CSS Variables
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Update your `styles.css` file to include the following CSS variables:
 
-## Running unit tests
+```css
+:root {
+  /* Primary Colors */
+  --primary: #1E3A8A;
+  --primary-light: #4A5A99;
+  --primary-dark: #0F2658;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  /* Secondary Colors */
+  --secondary: #9F38B4;
+  --secondary-light: #D275DF;
+  --secondary-dark: #6D0E82;
 
-## Running end-to-end tests
+  /* Success Colors */
+  --success: #10B981;
+  --success-light: #43D2A9;
+  --success-dark: #0E7D58;
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  /* Warning Colors */
+  --warning: #F59E0B;
+  --warning-light: #FFC94D;
+  --warning-dark: #D9820E;
 
-## Further help
+  /* Danger Colors */
+  --danger: #EF4444;
+  --danger-light: #F48080;
+  --danger-dark: #BE2E2E;
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  /* Info Colors */
+  --info: #3B82F6;
+  --info-light: #6696F6;
+  --info-dark: #1D4ED8;
+
+  /* Neutral Colors */
+  --lightest: #F3F4F6;
+  --lighter: #FFFFFF;
+  --light: #D1D5DB;
+  --dark: #1F2937;
+  --darker: #6B7280;
+  --darkest: #111827;
+}
+```
+
+## Usage
+
+In your Vue pages, you can now use the components from `@prismaui/angular`. 
+
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { PrismauiModule } from '@prismaui/angular';
+
+@NgModule({
+  declarations: [/* your components */],
+  imports: [BrowserModule, PrismauiModule],
+  providers: [],
+  bootstrap: [/* your root component */]
+})
+export class AppModule { }
