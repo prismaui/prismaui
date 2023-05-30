@@ -18,11 +18,11 @@ yarn add @prismaui/core
 
 ## Usage
 
-To use `@prismaui/core`, you need to include the provided CSS file and import the JavaScript module.
+To use `@prismaui/core`, you can import the JavaScript module in multiple ways depending on your preference or project setup.
 
-### HTML
+### Method 1: Local import
 
-Include the following HTML structure in your project:
+You can import the module from the local `node_modules` directory:
 
 ```html
 <!DOCTYPE html>
@@ -43,6 +43,86 @@ Include the following HTML structure in your project:
         import { defineCustomElements } from './node_modules/@prismaui/core/loader/index.es2017.js';
         defineCustomElements();
     </script>
+</body>
+
+</html>
+```
+
+### Method 2: Remote import via CDN
+
+You can import the module directly from a CDN:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <prm-button round="lg" variant="primary">Click Me</prm-button>
+
+    <script type="module">
+        import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@prismaui/core/loader/index.es2017.js';
+        defineCustomElements();
+    </script>
+</body>
+
+</html>
+```
+
+### Method 3: Local script import
+
+You can directly include the JavaScript module using a script tag with the local path:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <prm-button round="lg" variant="primary">Click Me</prm-button>
+
+    <script type="module" src="node_modules/@prismaui/core/dist/esm/prismaui.js"></script>
+</body>
+
+</html>
+```
+
+### Method 4: Remote script import via CDN
+
+You can include the JavaScript module directly from a CDN using a script tag:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <prm-button round="lg" variant="primary">Click Me</prm-button>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@prismaui/core/loader/index.es2017.js"></
+
+script>
 </body>
 
 </html>
@@ -96,7 +176,7 @@ Include the following CSS variables in your `style.css` file:
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the [GitHub repository](https://github.com/prismaui/core).
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the [GitHub repository](https://github.com/prismaui/prismaui).
 
 ## License
 
