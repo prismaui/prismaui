@@ -16,6 +16,13 @@ export const PrmButton = /*@__PURE__*/ defineContainer<JSX.PrmButton>('prm-butto
   'customclass',
   'loading',
   'outline',
+  'name',
+  'onclick'
+]);
+
+
+export const PrmButtonGroup = /*@__PURE__*/ defineContainer<JSX.PrmButtonGroup>('prm-button-group', undefined, [
+  'round',
   'onclick'
 ]);
 

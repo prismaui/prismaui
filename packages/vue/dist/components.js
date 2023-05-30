@@ -7,6 +7,11 @@ export const PrmButton = defineContainer('prm-button', undefined, [
     'customclass',
     'loading',
     'outline',
+    'name',
+    'onclick'
+]);
+export const PrmButtonGroup = defineContainer('prm-button-group', undefined, [
+    'round',
     'onclick'
 ]);
 //# sourceMappingURL=components.js.map
