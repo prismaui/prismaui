@@ -29,6 +29,20 @@ export default defineConfig({
     }
   }
 })
+
+```
+
+Update your `main.ts` and add Prisma UI Components in the `use()` wrapper:
+
+```diff
+import './assets/main.css'
+import { PrmButton } from '@prismaui/vue';
+
+import { createApp } from 'vue'
+import App from './App.vue'
+
+createApp(App).use(PrmButton).mount('#app')
+
 ```
 
 ## Custom CSS Variables
