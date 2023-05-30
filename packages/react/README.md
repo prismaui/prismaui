@@ -1,34 +1,45 @@
-# PrismaUI Angular
-
 ## Installation
 
-To install PrismaUI Angular, run the following command:
+To install `@prismaui/react`, you can use npm or yarn:
 
-```shell
-npm install @prismaui/angular
+```bash
+npm install @prismaui/react
 ```
 
-## Configuration
+or
 
-1. Import and include the `PrismauiModule` in your `app.module.ts` file:
-
-```typescript
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { PrismauiModule } from '@prismaui/angular';
-
-@NgModule({
-  declarations: [/* your components */],
-  imports: [BrowserModule, PrismauiModule],
-  providers: [],
-  bootstrap: [/* your root component */]
-})
-export class AppModule { }
+```bash
+yarn add @prismaui/react
 ```
 
-## Custom CSS Variables
+## Usage
 
-Update your `styles.css` file and add the following CSS variables:
+To use `@prismaui/react`, follow the steps below:
+
+1. Import the desired components from `@prismaui/react` in your React component file (e.g., `App.js`):
+
+```jsx
+import React from 'react';
+import { PrmButton } from '@prismaui/react';
+
+function App() {
+  return (
+    <div>
+      <PrmButton round="lg" variant="primary">Click Me</PrmButton>
+    </div>
+  );
+}
+
+export default App;
+```
+
+2. You can now use the Prisma UI components like the `PrmButton` component in your React application.
+
+To add the custom color variables to your CSS file, you can follow these steps:
+
+1. Open your CSS file (e.g., `styles.css`).
+
+2. Add the following CSS code to define the custom color variables:
 
 ```css
 :root {
@@ -72,20 +83,12 @@ Update your `styles.css` file and add the following CSS variables:
 }
 ```
 
-## Usage
+Now, the custom color variables are defined and can be used throughout your React application.
 
-You can now use the components from `@prismaui/angular` in your Angular pages.
+## Contributing
 
-```typescript
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { PrismauiModule } from '@prismaui/angular';
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the [GitHub repository](https://github.com/prismaui/prismaui).
 
-@NgModule({
-  declarations: [/* your components */],
-  imports: [BrowserModule, PrismauiModule],
-  providers: [],
-  bootstrap: [/* your root component */]
-})
-export class AppModule { }
-```
+## License
+
+This package is licensed under the [MIT License](https://opensource.org/licenses/MIT).
