@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter, Host } from '@stencil/core';
 
 @Component({
   tag: 'prm-button',
@@ -13,33 +13,26 @@ export class Button {
   @Prop({ reflect: true }) round: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'none';
   @Prop({ reflect: true }) disabled: boolean = false;
   @Prop({ reflect: true }) customclass: string = '';
-  // @Prop({ reflect: true }) ariacontrols: string = '';
   @Prop({ reflect: true }) loading: string = '';
   @Prop({ reflect: true }) outline: boolean = false;
-  @Prop({reflect:true}) name:string = ''
+  @Prop({ reflect: true }) name: string = '';
   @Event() onclick: EventEmitter<MouseEvent>;
 
-  handleClick = (ev: MouseEvent) => {
-    if (!this.disabled && !this.loading) {
-      this.onclick.emit(ev);
-    }
+  handleClick = (event: MouseEvent) => {
+    this.onclick.emit(event);
   };
 
   render() {
     const buttonClass = `${this.customclass} button-${this.size} button-round-${this.round}`;
     const isDisabled = this.disabled || !!this.loading;
     const buttonLabel = this.disabled ? 'Disabled Button' : `Button with ${this.variant} variant`;
-  
+
     const buttonProps = {
-      class: `${buttonClass} ${this.outline
-        ? `button-outline-${isDisabled ? 'disabled' : this.variant}`
-        : `button-${isDisabled ? 'disabled' : this.variant}`}`,
+      class: `${buttonClass} ${this.outline ? `button-outline-${isDisabled ? 'disabled' : this.variant}` : `button-${isDisabled ? 'disabled' : this.variant}`}`,
       disabled: isDisabled,
-      // 'aria-controls': this.ariacontrols,
       'aria-label': buttonLabel,
-      onClick: this.handleClick
     };
-  
+
     const slotContent = this.loading ? (
       <div class="slot-container">
         <span class="spinner"></span>
@@ -50,11 +43,13 @@ export class Button {
         <slot></slot>
       </div>
     );
-  
+
     return (
-      <button {...buttonProps}>
-        {slotContent}
-      </button>
+      <Host onClick={this.handleClick}>
+        <button {...buttonProps}>
+          {slotContent}
+        </button>
+      </Host>
     );
   }
 }

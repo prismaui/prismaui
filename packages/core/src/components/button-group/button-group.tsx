@@ -1,4 +1,4 @@
-import { Component, h, Prop, Listen, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter,Host } from '@stencil/core';
 
 @Component({
   tag: 'prm-button-group',
@@ -10,27 +10,17 @@ export class ButtonGroup {
 
   @Event() onclick: EventEmitter<MouseEvent>;
 
-  @Listen('click', { target: 'window' })
-  handleChildButtonClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    console.log(target.tagName);
-    
-    if (target.tagName === 'PRM-BUTTON') {
-      console.log(target);
-      const buttonName = target.getAttribute('name');
-      console.log(buttonName);
-      
-      if (buttonName) {
-        this.onclick.emit(event);
-      }
-    }
-  }
+  handleClick = (event: MouseEvent) => {
+    this.onclick.emit(event);
+  };
 
   render() {
     return (
+      <Host onClick={this.handleClick}>
       <div class={`button-group round-${this.round}`}>
         <slot></slot>
       </div>
+      </Host>
     );
   }
 }

@@ -11,10 +11,14 @@
   </head>
   <body>
 
-    <prm-button name="btn3" onclick="handleClick(e)" variant="success">Button 3</prm-button>
+    <prm-button-group onclick="handleClick(event)">
+      <prm-button name="btn1" variant="success">Button 3</prm-button>
+      <prm-button name="btn2" variant="warning">Button 3</prm-button>
+      <prm-button name="btn3" variant="danger">Button 3</prm-button>
+    </prm-button-group>
     <script>
-      const handleClick = (e) =>{
-        console.log(e);
+      function handleClick(params) {
+       console.log(params);
       }
     </script>
   </body>
