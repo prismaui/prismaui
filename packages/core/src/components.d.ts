@@ -22,7 +22,7 @@ export namespace Components {
     interface PrmPlayground {
     }
     interface PrmPopup {
-        "animation": 'fade' | 'scale';
+        "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "isOpen": boolean;
         "size": 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
@@ -86,7 +86,7 @@ declare namespace LocalJSX {
     interface PrmPlayground {
     }
     interface PrmPopup {
-        "animation"?: 'fade' | 'scale';
+        "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "isOpen"?: boolean;
         "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }

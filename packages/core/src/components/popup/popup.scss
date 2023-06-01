@@ -122,7 +122,7 @@
   }
 }
 
-@keyframes popupFadeAnimation {
+@keyframes popupFadeOpenAnimation {
   from {
     opacity: 0;
   }
@@ -131,7 +131,16 @@
   }
 }
 
-@keyframes popupScaleAnimation {
+@keyframes popupFadeCloseAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popupScaleOpenAnimation {
   from {
     opacity: 0;
     transform: scale(0.8);
@@ -142,10 +151,150 @@
   }
 }
 
+@keyframes popupScaleCloseAnimation {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes popupSlideTopAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popupSlideTopCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes popupSlideBottomAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popupSlideBottomCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes popupSlideLeftAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popupSlideLeftCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes popupSlideRightAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popupSlideRightCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+
 .popup-card.open.fade {
-  animation-name: popupFadeAnimation;
+  animation-name: popupFadeOpenAnimation;
+}
+
+.popup-card.close.fade {
+  animation-name: popupFadeCloseAnimation;
 }
 
 .popup-card.open.scale {
-  animation-name: popupScaleAnimation;
+  animation-name: popupScaleOpenAnimation;
+}
+
+.popup-card.close.scale {
+  animation-name: popupScaleCloseAnimation;
+}
+
+.popup-card.open.slide-top {
+  animation-name: popupSlideTopAnimation;
+}
+
+.popup-card.close.slide-top {
+  animation-name: popupSlideTopCloseAnimation;
+}
+
+.popup-card.open.slide-bottom {
+  animation-name: popupSlideBottomAnimation;
+}
+
+.popup-card.close.slide-bottom {
+  animation-name: popupSlideBottomCloseAnimation;
+}
+
+.popup-card.open.slide-left {
+  animation-name: popupSlideLeftAnimation;
+}
+
+.popup-card.close.slide-left {
+  animation-name: popupSlideLeftCloseAnimation;
+}
+
+.popup-card.open.slide-right {
+  animation-name: popupSlideRightAnimation;
+}
+
+.popup-card.close.slide-right {
+  animation-name: popupSlideRightCloseAnimation;
 }

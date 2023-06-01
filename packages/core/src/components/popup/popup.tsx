@@ -8,9 +8,11 @@ import { Component, h, Prop, State } from '@stencil/core';
 export class PrmPopup {
   @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
   @Prop() isOpen: boolean = false;
-  @Prop() animation: 'fade' | 'scale' = 'fade';
+  @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
 
   @State() isPopupOpen: boolean = false;
+  @State() closingAnimation: string = '';
+
 
   componentWillRender() {
     this.isPopupOpen = this.isOpen;
