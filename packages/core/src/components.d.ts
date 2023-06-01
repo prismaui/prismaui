@@ -24,7 +24,7 @@ export namespace Components {
     interface PrmPopup {
         "data": any;
         "isOpen": boolean;
-        "size": string;
+        "size": 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
 }
 export interface PrmButtonCustomEvent<T> extends CustomEvent<T> {
@@ -88,7 +88,7 @@ declare namespace LocalJSX {
     interface PrmPopup {
         "data"?: any;
         "isOpen"?: boolean;
-        "size"?: string;
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
     interface IntrinsicElements {
         "prm-button": PrmButton;

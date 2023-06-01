@@ -17,22 +17,104 @@
   padding: 20px;
   animation: popupOpenAnimation 0.3s;
 
-  &.small {
-    width: 300px;
+  &.full {
+    width: 85%;
   }
 
-  &.medium {
-    width: 500px;
+  @media (min-width: 640px) {
+    &.sm {
+      width: 300px;
+    }
+    &.md {
+      width: 400px;
+    }
+    &.lg {
+      width: 500px;
+    }
+    &.xl {
+      width: 600px;
+    }
+    &.full {
+      width: 85%;
+    }
   }
 
-  &.large {
-    width: 800px;
+  @media (min-width: 768px) {
+    &.sm {
+      width: 350px;
+    }
+    &.md {
+      width: 450px;
+    }
+    &.lg {
+      width: 550px;
+    }
+    &.xl {
+      width: 650px;
+    }
+    &.full {
+      width: 85%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &.sm {
+      width: 400px;
+    }
+    &.md {
+      width: 500px;
+    }
+    &.lg {
+      width: 600px;
+    }
+    &.xl {
+      width: 700px;
+    }
+    &.full {
+      width: 85%;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    &.sm {
+      width: 450px;
+    }
+    &.md {
+      width: 550px;
+    }
+    &.lg {
+      width: 650px;
+    }
+    &.xl {
+      width: 750px;
+    }
+    &.full {
+      width: 85%;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    &.sm {
+      width: 500px;
+    }
+    &.md {
+      width: 600px;
+    }
+    &.lg {
+      width: 700px;
+    }
+    &.xl {
+      width: 800px;
+    }
+    &.full {
+      width: 85%;
+    }
   }
 }
 
-.popup-content {
-  /* Additional styles for the popup content */
-}
+
+
+
 
 @keyframes popupOpenAnimation {
   from {

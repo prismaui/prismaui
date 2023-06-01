@@ -6,7 +6,7 @@ import { Component, h, Prop, State, Watch } from '@stencil/core';
   shadow: true,
 })
 export class Popup {
-  @Prop({ reflect: true }) size: string = 'medium';
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | 'full';
   @Prop({ reflect: true }) data: any;
   @Prop({ reflect: true, mutable: true }) isOpen: boolean = false;
   @State() opened: boolean = false;
@@ -21,13 +21,12 @@ export class Popup {
   }
 
   render() {
-    return this.opened && (
+    return this.opened ? (
       <div class="popup-overlay">
         <div class={`popup-card ${this.size}`}>
           <slot></slot>
-          <div class="popup-content">{this.data}</div>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
