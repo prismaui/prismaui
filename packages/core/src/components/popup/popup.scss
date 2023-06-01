@@ -141,26 +141,35 @@
 }
 
 @keyframes popupScaleOpenAnimation {
-  from {
+  0% {
     opacity: 0;
     transform: scale(0.8);
   }
-  to {
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
     opacity: 1;
     transform: scale(1);
   }
 }
 
 @keyframes popupScaleCloseAnimation {
-  from {
+  0% {
     opacity: 1;
     transform: scale(1);
   }
-  to {
+  50% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+  100% {
     opacity: 0;
     transform: scale(0.8);
   }
 }
+
 
 @keyframes popupSlideTopAnimation {
   from {
