@@ -23,6 +23,7 @@ export namespace Components {
     }
     interface PrmPopup {
         "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "component": any;
         "isOpen": boolean;
         "size": 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
@@ -87,6 +88,7 @@ declare namespace LocalJSX {
     }
     interface PrmPopup {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "component"?: any;
         "isOpen"?: boolean;
         "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
