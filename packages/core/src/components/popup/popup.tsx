@@ -11,8 +11,6 @@ export class PrmPopup {
   @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
 
   @State() isPopupOpen: boolean = false;
-  @State() closingAnimation: string = '';
-
 
   componentWillRender() {
     this.isPopupOpen = this.isOpen;
