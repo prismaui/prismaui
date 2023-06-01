@@ -1,32 +1,32 @@
-import { Component, h, Prop, State, Watch } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'prm-popup',
   styleUrl: 'popup.scss',
-  shadow: true,
+  shadow: true
 })
-export class Popup {
-  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | 'full';
-  @Prop({ reflect: true }) data: any;
-  @Prop({ reflect: true, mutable: true }) isOpen: boolean = false;
-  @State() opened: boolean = false;
+export class PrmPopup {
+  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
+  @Prop() isOpen: boolean = false;
+  @Prop() animation: 'fade' | 'scale' = 'fade';
+
+  @State() isPopupOpen: boolean = false;
 
   componentWillRender() {
-    this.opened = this.isOpen;
+    this.isPopupOpen = this.isOpen;
   }
 
-  @Watch('isOpen')
-  handleIsOpenChange(newValue: boolean) {
-    this.opened = newValue;
+  togglePopup() {
+    this.isPopupOpen = !this.isPopupOpen;
   }
 
   render() {
-    return this.opened ? (
-      <div class="popup-overlay">
-        <div class={`popup-card ${this.size}`}>
-          <slot></slot>
+    return (
+      <div class={`popup-overlay ${this.isPopupOpen ? 'open' : ''}`}>
+        <div class={`popup-card ${this.size} ${this.isPopupOpen ? 'open' : 'close'} ${this.animation}`}>
+          <slot />
         </div>
       </div>
-    ) : null;
+    );
   }
 }

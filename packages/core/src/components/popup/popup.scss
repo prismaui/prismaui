@@ -9,16 +9,41 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .popup-card {
   background-color: white;
   border-radius: 4px;
   padding: 20px;
-  animation: popupOpenAnimation 0.3s;
+  transform: scale(0.8);
+  animation-duration: 0.3s;
 
   &.full {
     width: 85%;
+  }
+
+  &.sm {
+    width: 300px;
+  }
+
+  &.md {
+    width: 400px;
+  }
+
+  &.lg {
+    width: 500px;
+  }
+
+  &.xl {
+    width: 600px;
   }
 
   @media (min-width: 640px) {
@@ -33,9 +58,6 @@
     }
     &.xl {
       width: 600px;
-    }
-    &.full {
-      width: 85%;
     }
   }
 
@@ -52,9 +74,6 @@
     &.xl {
       width: 650px;
     }
-    &.full {
-      width: 85%;
-    }
   }
 
   @media (min-width: 1024px) {
@@ -69,9 +88,6 @@
     }
     &.xl {
       width: 700px;
-    }
-    &.full {
-      width: 85%;
     }
   }
 
@@ -88,9 +104,6 @@
     &.xl {
       width: 750px;
     }
-    &.full {
-      width: 85%;
-    }
   }
 
   @media (min-width: 1536px) {
@@ -106,17 +119,19 @@
     &.xl {
       width: 800px;
     }
-    &.full {
-      width: 85%;
-    }
   }
 }
 
+@keyframes popupFadeAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-
-
-
-@keyframes popupOpenAnimation {
+@keyframes popupScaleAnimation {
   from {
     opacity: 0;
     transform: scale(0.8);
@@ -125,4 +140,12 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.popup-card.open.fade {
+  animation-name: popupFadeAnimation;
+}
+
+.popup-card.open.scale {
+  animation-name: popupScaleAnimation;
 }

@@ -15,8 +15,8 @@ export class Playground {
     return (
       <Host>
         <prm-button round="md" size="xl" onClick={this.togglePopup}>Test</prm-button>
-        <prm-popup isOpen={this.isPopupOpen} size="full" data={''}>
-          test
+        <prm-popup animation="fade" isOpen={this.isPopupOpen} size="full">
+          <prm-button variant='danger' round="md" size="xl" onClick={this.togglePopup}>Close</prm-button>
         </prm-popup>
       </Host>
     );
