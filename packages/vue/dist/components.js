@@ -14,4 +14,9 @@ export const PrmButtonGroup = defineContainer('prm-button-group', undefined, [
     'round',
     'onclick'
 ]);
+export const PrmPopup = defineContainer('prm-popup', undefined, [
+    'size',
+    'isOpen',
+    'animation'
+]);
 //# sourceMappingURL=components.js.map

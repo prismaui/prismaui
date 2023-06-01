@@ -26,3 +26,10 @@ export const PrmButtonGroup = /*@__PURE__*/ defineContainer<JSX.PrmButtonGroup>(
   'onclick'
 ]);
 
+
+export const PrmPopup = /*@__PURE__*/ defineContainer<JSX.PrmPopup>('prm-popup', undefined, [
+  'size',
+  'isOpen',
+  'animation'
+]);
+

@@ -59,3 +59,25 @@ export declare interface PrmButtonGroup extends Components.PrmButtonGroup {
 }
 
 
+@ProxyCmp({
+  inputs: ['animation', 'isOpen', 'size']
+})
+@Component({
+  selector: 'prm-popup',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['animation', 'isOpen', 'size'],
+})
+export class PrmPopup {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PrmPopup extends Components.PrmPopup {}
+
+
