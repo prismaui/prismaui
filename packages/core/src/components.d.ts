@@ -19,6 +19,13 @@ export namespace Components {
     interface PrmButtonGroup {
         "round": 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
+    interface PrmPlayground {
+    }
+    interface PrmPopup {
+        "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "isOpen": boolean;
+        "size": 'sm' | 'md' | 'lg' | 'xl' | 'full';
+    }
 }
 export interface PrmButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -41,9 +48,23 @@ declare global {
         prototype: HTMLPrmButtonGroupElement;
         new (): HTMLPrmButtonGroupElement;
     };
+    interface HTMLPrmPlaygroundElement extends Components.PrmPlayground, HTMLStencilElement {
+    }
+    var HTMLPrmPlaygroundElement: {
+        prototype: HTMLPrmPlaygroundElement;
+        new (): HTMLPrmPlaygroundElement;
+    };
+    interface HTMLPrmPopupElement extends Components.PrmPopup, HTMLStencilElement {
+    }
+    var HTMLPrmPopupElement: {
+        prototype: HTMLPrmPopupElement;
+        new (): HTMLPrmPopupElement;
+    };
     interface HTMLElementTagNameMap {
         "prm-button": HTMLPrmButtonElement;
         "prm-button-group": HTMLPrmButtonGroupElement;
+        "prm-playground": HTMLPrmPlaygroundElement;
+        "prm-popup": HTMLPrmPopupElement;
     }
 }
 declare namespace LocalJSX {
@@ -62,9 +83,18 @@ declare namespace LocalJSX {
         "onOnclick"?: (event: PrmButtonGroupCustomEvent<MouseEvent>) => void;
         "round"?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
+    interface PrmPlayground {
+    }
+    interface PrmPopup {
+        "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "isOpen"?: boolean;
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+    }
     interface IntrinsicElements {
         "prm-button": PrmButton;
         "prm-button-group": PrmButtonGroup;
+        "prm-playground": PrmPlayground;
+        "prm-popup": PrmPopup;
     }
 }
 export { LocalJSX as JSX };
@@ -73,6 +103,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "prm-button": LocalJSX.PrmButton & JSXBase.HTMLAttributes<HTMLPrmButtonElement>;
             "prm-button-group": LocalJSX.PrmButtonGroup & JSXBase.HTMLAttributes<HTMLPrmButtonGroupElement>;
+            "prm-playground": LocalJSX.PrmPlayground & JSXBase.HTMLAttributes<HTMLPrmPlaygroundElement>;
+            "prm-popup": LocalJSX.PrmPopup & JSXBase.HTMLAttributes<HTMLPrmPopupElement>;
         }
     }
 }

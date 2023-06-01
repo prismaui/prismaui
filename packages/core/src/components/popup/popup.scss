@@ -1,0 +1,325 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.popup-card {
+  background-color: white;
+  border-radius: 4px;
+  transform: scale(0.8);
+  animation-duration: 0.3s;
+
+  &.full {
+    width: 100%;
+  }
+
+  &.sm {
+    width: 300px;
+  }
+
+  &.md {
+    width: 400px;
+  }
+
+  &.lg {
+    width: 500px;
+  }
+
+  &.xl {
+    width: 600px;
+  }
+
+  @media (min-width: 640px) {
+    &.sm {
+      width: 300px;
+    }
+    &.md {
+      width: 400px;
+    }
+    &.lg {
+      width: 500px;
+    }
+    &.xl {
+      width: 600px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &.sm {
+      width: 350px;
+    }
+    &.md {
+      width: 450px;
+    }
+    &.lg {
+      width: 550px;
+    }
+    &.xl {
+      width: 650px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &.sm {
+      width: 400px;
+    }
+    &.md {
+      width: 500px;
+    }
+    &.lg {
+      width: 600px;
+    }
+    &.xl {
+      width: 700px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    &.sm {
+      width: 450px;
+    }
+    &.md {
+      width: 550px;
+    }
+    &.lg {
+      width: 650px;
+    }
+    &.xl {
+      width: 750px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    &.sm {
+      width: 500px;
+    }
+    &.md {
+      width: 600px;
+    }
+    &.lg {
+      width: 700px;
+    }
+    &.xl {
+      width: 800px;
+    }
+  }
+}
+
+@keyframes popupFadeOpenAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupFadeCloseAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popupScaleOpenAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  20% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  80% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popupScaleCloseAnimation {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  80% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+
+
+@keyframes popupSlideTopAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popupSlideTopCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes popupSlideBottomAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popupSlideBottomCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes popupSlideLeftAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popupSlideLeftCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes popupSlideRightAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popupSlideRightCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+
+.popup-card.open.fade {
+  animation-name: popupFadeOpenAnimation;
+}
+
+.popup-card.close.fade {
+  animation-name: popupFadeCloseAnimation;
+}
+
+.popup-card.open.scale {
+  animation-name: popupScaleOpenAnimation;
+}
+
+.popup-card.close.scale {
+  animation-name: popupScaleCloseAnimation;
+}
+
+.popup-card.open.slide-top {
+  animation-name: popupSlideTopAnimation;
+}
+
+.popup-card.close.slide-top {
+  animation-name: popupSlideTopCloseAnimation;
+}
+
+.popup-card.open.slide-bottom {
+  animation-name: popupSlideBottomAnimation;
+}
+
+.popup-card.close.slide-bottom {
+  animation-name: popupSlideBottomCloseAnimation;
+}
+
+.popup-card.open.slide-left {
+  animation-name: popupSlideLeftAnimation;
+}
+
+.popup-card.close.slide-left {
+  animation-name: popupSlideLeftCloseAnimation;
+}
+
+.popup-card.open.slide-right {
+  animation-name: popupSlideRightAnimation;
+}
+
+.popup-card.close.slide-right {
+  animation-name: popupSlideRightCloseAnimation;
+}
