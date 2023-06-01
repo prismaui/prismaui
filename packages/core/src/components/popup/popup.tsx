@@ -24,7 +24,15 @@ export class PrmPopup {
     return (
       <div class={`popup-overlay ${this.isPopupOpen ? 'open' : ''}`}>
         <div class={`popup-card ${this.size} ${this.isPopupOpen ? 'open' : 'close'} ${this.animation}`}>
-          <slot />
+          <div class="popup-header">
+            <slot name="header" />
+          </div>
+          <div class="popup-content">
+            <slot />
+          </div>
+          <div class="popup-footer">
+            <slot name="footer" />
+          </div>
         </div>
       </div>
     );
