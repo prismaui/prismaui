@@ -29,15 +29,18 @@ export const config: Config = {
     vueOutputTarget({
       componentCorePackage: '@prismaui/core',
       proxiesFile: '../vue/lib/components.ts',
+      excludeComponents:['prm-playground']
     }),
     reactOutputTarget({
       componentCorePackage: '@prismaui/core',
       proxiesFile: '../react/lib/components/generated/index.ts',
+      excludeComponents:['prm-playground']
     }),
     angularOutputTarget({
       componentCorePackage: '@prismaui/core',
       directivesProxyFile: '../angular/projects/prismaui/src/lib/generated/components.ts',
       directivesArrayFile: '../angular/projects/prismaui/src/lib/generated/index.ts',
+      excludeComponents:['prm-playground']
     }),
     {
       type: 'dist-custom-elements',
