@@ -5,7 +5,7 @@ import { Component, h, Prop, State } from '@stencil/core';
   styleUrl: 'popup.scss',
   shadow: true
 })
-export class PrmPopup {
+export class Popup {
   @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
   @Prop() isOpen: boolean = false;
   @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
