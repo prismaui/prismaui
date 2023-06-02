@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, Prop, h, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'prm-toast',
@@ -6,12 +6,15 @@ import { Component, Prop, h, State } from '@stencil/core';
   shadow: true,
 })
 export class PrmToast {
+  @Element() el: HTMLElement;
+
   @Prop() message: string;
   @Prop() variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
   @Prop() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-right';
   @Prop() timer: number = 3000;
   @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
+  @Prop() showCloseButton: boolean = true;
 
   @State() visible: boolean = true;
 
@@ -21,10 +24,49 @@ export class PrmToast {
     }, this.timer);
   }
 
+  componentDidRender() {
+    const container = document.querySelector(`.toast-container.${this.position}`) || this.createToastContainer();
+    container.appendChild(this.el);
+  }
+
+  createToastContainer() {
+    const container = document.createElement('div');
+    container.className = `toast-container ${this.position}`;
+    container.style.position = 'fixed';
+    container.style.zIndex = '1000';
+
+    switch (this.position) {
+      case 'top-left':
+        container.style.top = '1rem';
+        container.style.left = '1rem';
+        break;
+      case 'top-right':
+        container.style.top = '1rem';
+        container.style.right = '1rem';
+        break;
+      case 'bottom-left':
+        container.style.bottom = '1rem';
+        container.style.left = '1rem';
+        break;
+      case 'bottom-right':
+        container.style.bottom = '1rem';
+        container.style.right = '1rem';
+        break;
+    }
+
+    document.body.appendChild(container);
+    return container;
+  }
+
+  closeToast() {
+    this.visible = false;
+  }
+
   render() {
     return (
-      <div class={`toast ${this.variant} ${this.size} ${this.position} ${this.animation} ${this.visible ? 'visible' : 'hidden'}`}>
-        {this.message}
+      <div class={`toast ${this.variant} ${this.size} ${this.animation} ${this.visible ? 'visible' : 'hidden'}`}>
+        {this.showCloseButton && <button class="close-btn" onClick={() => this.closeToast()}>&times;</button>}
+        <div class="toast-content">{this.message}</div>
       </div>
     );
   }
