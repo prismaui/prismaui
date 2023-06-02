@@ -26,6 +26,15 @@ export namespace Components {
         "isOpen": boolean;
         "size": 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
+    interface PrmToast {
+        "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "duration": number;
+        "message": string;
+        "position": 'top-center' | 'top-right' | 'top-left' | 'bottom-center' | 'bottom-right' | 'bottom-left' | 'center';
+        "show": boolean;
+        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
+    }
 }
 export interface PrmButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -60,11 +69,18 @@ declare global {
         prototype: HTMLPrmPopupElement;
         new (): HTMLPrmPopupElement;
     };
+    interface HTMLPrmToastElement extends Components.PrmToast, HTMLStencilElement {
+    }
+    var HTMLPrmToastElement: {
+        prototype: HTMLPrmToastElement;
+        new (): HTMLPrmToastElement;
+    };
     interface HTMLElementTagNameMap {
         "prm-button": HTMLPrmButtonElement;
         "prm-button-group": HTMLPrmButtonGroupElement;
         "prm-playground": HTMLPrmPlaygroundElement;
         "prm-popup": HTMLPrmPopupElement;
+        "prm-toast": HTMLPrmToastElement;
     }
 }
 declare namespace LocalJSX {
@@ -90,11 +106,21 @@ declare namespace LocalJSX {
         "isOpen"?: boolean;
         "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
+    interface PrmToast {
+        "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "duration"?: number;
+        "message"?: string;
+        "position"?: 'top-center' | 'top-right' | 'top-left' | 'bottom-center' | 'bottom-right' | 'bottom-left' | 'center';
+        "show"?: boolean;
+        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
+    }
     interface IntrinsicElements {
         "prm-button": PrmButton;
         "prm-button-group": PrmButtonGroup;
         "prm-playground": PrmPlayground;
         "prm-popup": PrmPopup;
+        "prm-toast": PrmToast;
     }
 }
 export { LocalJSX as JSX };
@@ -105,6 +131,7 @@ declare module "@stencil/core" {
             "prm-button-group": LocalJSX.PrmButtonGroup & JSXBase.HTMLAttributes<HTMLPrmButtonGroupElement>;
             "prm-playground": LocalJSX.PrmPlayground & JSXBase.HTMLAttributes<HTMLPrmPlaygroundElement>;
             "prm-popup": LocalJSX.PrmPopup & JSXBase.HTMLAttributes<HTMLPrmPopupElement>;
+            "prm-toast": LocalJSX.PrmToast & JSXBase.HTMLAttributes<HTMLPrmToastElement>;
         }
     }
 }
