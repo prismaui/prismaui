@@ -1,45 +1,42 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, State } from '@stencil/core';
 
 @Component({
   tag: 'prm-toast',
-  styleUrl: 'toast.scss',
+  styleUrl: 'prm-toast.scss',
   shadow: true,
 })
 export class PrmToast {
-  @Prop() position: 'top-center' | 'top-right' | 'top-left' | 'bottom-center' | 'bottom-right' | 'bottom-left' | 'center' = 'top-right';
-  @Prop() duration: number = 5000;
-  @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
+  @Prop() message: string;
   @Prop() variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
   @Prop() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @Prop() message: string = '';
-  @Prop() show: boolean = false;
+  @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-right';
+  @Prop() timer: number = 3000;
+  @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
 
-  private timer: any;
+  @State() visible: boolean = true;
 
-  showToast() {
-    this.show = true;
-    this.timer = setTimeout(() => {
-      this.show = false;
-    }, this.duration);
-  }
+  private static visibleToasts: number = 0;
+  private toastIndex: number;
 
-  componentWillUpdate() {
-    clearTimeout(this.timer);
+  componentWillLoad() {
+    this.toastIndex = PrmToast.visibleToasts;
+    PrmToast.visibleToasts++;
+
+    setTimeout(() => {
+      this.visible = false;
+      PrmToast.visibleToasts--;
+    }, this.timer);
   }
 
   render() {
-    if (this.show) {
-      this.showToast();
-    }
+    const marginBottom = `${(this.toastIndex + 1) * 10}px`;
 
     return (
-      <div class={`toast ${this.variant} ${this.size} ${this.animation} ${this.show ? 'show' : ''} ${this.position}`}>
-        <div class="toast-body">
-          {this.message}
-        </div>
-        <button type="button" class="close" data-dismiss="toast" aria-label="Close" onClick={() => this.show = false}>
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div
+        class={`toast ${this.variant} ${this.size} ${this.position} ${this.animation} ${this.visible ? 'visible' : 'hidden'}`}
+        style={{ 'margin-bottom': marginBottom }}
+      >
+        {this.message}
       </div>
     );
   }

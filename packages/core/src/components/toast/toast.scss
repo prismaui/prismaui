@@ -1,65 +1,55 @@
+:host {
+  display: block;
+}
+
 .toast {
   position: fixed;
-  z-index: 9999;
-  min-width: 350px;
-  max-width: 500px;
-  margin: 0.5rem;
-  padding: 0.75rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.25rem;
+  color: #fff;
   opacity: 0;
-  transition: opacity 03s ease-in-out;
-  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  z-index: 1000;
 
-  &.show {
+  &.visible {
     opacity: 1;
+  }
+
+  &.hidden {
+    display: none;
   }
 
   &.primary {
     background-color: var(--primary);
-    color: var(--lighter);
-    border-color: var(--primary);
   }
 
   &.secondary {
     background-color: var(--secondary);
-    color: var(--lighter);
-    border-color: var(--secondary);
   }
 
   &.success {
     background-color: var(--success);
-    color: var(--lighter);
-    border-color: var(--success);
   }
 
   &.warning {
     background-color: var(--warning);
-    color: var(--lighter);
-    border-color: var(--warning);
   }
 
   &.danger {
     background-color: var(--danger);
-    color: var(--lighter);
-    border-color: var(--danger);
   }
 
   &.info {
     background-color: var(--info);
-    color: var(--lighter);
-    border-color: var(--info);
   }
 
   &.light {
     background-color: var(--light);
-    color: var(--darker);
-    border-color: var(--light);
+    color: var(--dark);
   }
 
   &.dark {
     background-color: var(--dark);
-    color: var(--lighter);
-    border-color: var(--dark);
   }
 
   &.xs {
@@ -75,112 +65,108 @@
   }
 
   &.lg {
-    font-size: 1.125rem;
-  }
-
-  &.xl {
     font-size: 1.25rem;
   }
 
-  &.fade {
-    &.show {
-      opacity: 1;
-    }
-  }
-
-  &.scale {
-    transform: scale(0.8);
-
-    &.show {
-      transform: scale(1);
-    }
-  }
-
-  &.slide-top {
-    transform: translateY(-100%);
-
-    &.show {
-      transform: translateY(0);
-    }
-  }
-
-  &.slide-bottom {
-    transform: translateY(100%);
-
-    &.show {
-      transform: translateY(0);
-    }
-  }
-
-  &.slide-left {
-    transform: translateX(-100%);
-
-    &.show {
-      transform: translateX(0);
-    }
-  }
-
-  &.slide-right {
-    transform: translateX(100%);
-
-    &.show {
-      transform: translateX(0);
-    }
-  }
-
-  &.top-center {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &.top-right {
-    top: 0;
-    right: 0;
+  &.xl {
+    font-size: 1.5rem;
   }
 
   &.top-left {
-    top: 0;
-    left: 0;
+    top: 1rem;
+    left: 1rem;
   }
 
-  &.bottom-center {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &.bottom-right {
-    bottom: 0;
-    right: 0;
+  &.top-right {
+    top: 1rem;
+    right: 1rem;
   }
 
   &.bottom-left {
-    bottom: 0;
-    left: 0;
+    bottom: 1rem;
+    left: 1rem;
   }
 
-  &.center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  &.bottom-right {
+    bottom: 1rem;
+    right: 1rem;
   }
 
-  .close {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    font-size:1.25rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    opacity: 0.5;
-    transition: opacity 0.3s ease-in-out;
+  &.fade {
+    animation: fade 0.3s;
+  }
 
-    &:hover {
-      color: #000;
-      opacity:0.75;
-      text-decoration: none;
-    }
+  &.scale {
+    animation: scale 0.3s;
+  }
+
+  &.slide-top {
+    animation: slide-top 0.3s;
+  }
+
+  &.slide-bottom {
+    animation: slide-bottom 0.3s;
+  }
+
+  &.slide-left {
+    animation: slide-left 0.3s;
+  }
+
+  &.slide-right {
+    animation: slide-right 0.3s;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-top {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
