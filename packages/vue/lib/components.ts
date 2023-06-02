@@ -35,12 +35,12 @@ export const PrmPopup = /*@__PURE__*/ defineContainer<JSX.PrmPopup>('prm-popup',
 
 
 export const PrmToast = /*@__PURE__*/ defineContainer<JSX.PrmToast>('prm-toast', undefined, [
-  'position',
-  'duration',
-  'animation',
+  'message',
   'variant',
   'size',
-  'message',
-  'show'
+  'position',
+  'timer',
+  'animation',
+  'closable'
 ]);
 

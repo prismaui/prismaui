@@ -14,7 +14,7 @@ export class PrmToast {
   @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-right';
   @Prop() timer: number = 3000;
   @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
-  @Prop() showCloseButton: boolean = true;
+  @Prop() closable: boolean = true;
 
   @State() visible: boolean = true;
 
@@ -65,7 +65,7 @@ export class PrmToast {
   render() {
     return (
       <div class={`toast ${this.variant} ${this.size} ${this.animation} ${this.visible ? 'visible' : 'hidden'}`}>
-        {this.showCloseButton && <button class="close-btn" onClick={() => this.closeToast()}>&times;</button>}
+        {this.closable && <button class="close-btn" onClick={() => this.closeToast()}>&times;</button>}
         <div class="toast-content">{this.message}</div>
       </div>
     );

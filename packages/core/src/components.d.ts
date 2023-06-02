@@ -28,9 +28,9 @@ export namespace Components {
     }
     interface PrmToast {
         "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "closable": boolean;
         "message": string;
         "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-        "showCloseButton": boolean;
         "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "timer": number;
         "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
@@ -108,9 +108,9 @@ declare namespace LocalJSX {
     }
     interface PrmToast {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "closable"?: boolean;
         "message"?: string;
         "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-        "showCloseButton"?: boolean;
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "timer"?: number;
         "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';

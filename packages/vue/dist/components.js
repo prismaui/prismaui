@@ -20,12 +20,12 @@ export const PrmPopup = defineContainer('prm-popup', undefined, [
     'animation'
 ]);
 export const PrmToast = defineContainer('prm-toast', undefined, [
-    'position',
-    'duration',
-    'animation',
+    'message',
     'variant',
     'size',
-    'message',
-    'show'
+    'position',
+    'timer',
+    'animation',
+    'closable'
 ]);
 //# sourceMappingURL=components.js.map
