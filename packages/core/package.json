@@ -1,6 +1,6 @@
 {
   "name": "@prismaui/core",
-  "version": "0.0.1-y.0",
+  "version": "0.0.1-y.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
