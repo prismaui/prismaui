@@ -14,19 +14,6 @@
 | `size`      | `size`      |             | `"full" \| "lg" \| "md" \| "sm" \| "xl"`                                              | `'md'`   |
 
 
-## Dependencies
-
-### Used by
-
- - [prm-playground](../playground)
-
-### Graph
-```mermaid
-graph TD;
-  prm-playground --> prm-popup
-  style prm-popup fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -19,4 +19,13 @@ export const PrmPopup = defineContainer('prm-popup', undefined, [
     'isOpen',
     'animation'
 ]);
+export const PrmToast = defineContainer('prm-toast', undefined, [
+    'position',
+    'duration',
+    'animation',
+    'variant',
+    'size',
+    'message',
+    'show'
+]);
 //# sourceMappingURL=components.js.map
