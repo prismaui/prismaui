@@ -27,12 +27,6 @@ export namespace Components {
         "size": 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
     interface PrmToast {
-        "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
-        "message": string;
-        "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-        "timer": number;
-        "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
 }
 export interface PrmButtonCustomEvent<T> extends CustomEvent<T> {
@@ -106,12 +100,6 @@ declare namespace LocalJSX {
         "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
     interface PrmToast {
-        "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
-        "message"?: string;
-        "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-        "timer"?: number;
-        "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
     interface IntrinsicElements {
         "prm-button": PrmButton;

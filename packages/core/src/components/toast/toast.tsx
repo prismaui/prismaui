@@ -1,31 +1,35 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, h, State } from '@stencil/core';
+import toastStore from './toast-store';
 
 @Component({
   tag: 'prm-toast',
   styleUrl: 'toast.scss',
   shadow: true,
 })
-export class PrmToast {
-  @Prop() message: string;
-  @Prop() variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
-  @Prop() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-right';
-  @Prop() timer: number = 3000;
-  @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
-
-  @State() visible: boolean = true;
+export class ToastManager {
+  @State() toasts: any[] = [];
 
   componentWillLoad() {
-    setTimeout(() => {
-      this.visible = false;
-    }, this.timer);
+    toastStore.onChange('toasts', toasts => {
+      this.toasts = toasts;
+    });
+  }
+
+  componentDidRender() {
+    this.toasts.forEach(toast => {
+      setTimeout(() => {
+        toastStore.removeToast(toast.id);
+      }, toast.timer);
+    });
   }
 
   render() {
-    return (
-      <div class={`toast ${this.variant} ${this.size} ${this.position} ${this.animation} ${this.visible ? 'visible' : 'hidden'}`}>
-        {this.message}
+    return this.toasts.map(toast => (
+      <div class={`toast-container ${toast.position}`}>
+        <div class={`toast ${toast.variant} ${toast.size} ${toast.animation}`}>
+          {toast.message}
+        </div>
       </div>
-    );
+    ));
   }
 }

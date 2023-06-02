@@ -2,13 +2,37 @@
   display: block;
 }
 
-.toast {
+.toast-container {
   position: fixed;
+
+  &.top-left {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &.top-right {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  &.bottom-right {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+.toast {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   color: #fff;
+  margin-bottom: 0.5rem;
   opacity: 0;
-  transition: all 0.3s ease;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
 
   &.visible {
     opacity: 1;
