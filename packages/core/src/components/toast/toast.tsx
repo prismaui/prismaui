@@ -2,7 +2,7 @@ import { Component, Prop, h, State } from '@stencil/core';
 
 @Component({
   tag: 'prm-toast',
-  styleUrl: 'prm-toast.scss',
+  styleUrl: 'toast.scss',
   shadow: true,
 })
 export class PrmToast {
@@ -15,27 +15,15 @@ export class PrmToast {
 
   @State() visible: boolean = true;
 
-  private static visibleToasts: number = 0;
-  private toastIndex: number;
-
   componentWillLoad() {
-    this.toastIndex = PrmToast.visibleToasts;
-    PrmToast.visibleToasts++;
-
     setTimeout(() => {
       this.visible = false;
-      PrmToast.visibleToasts--;
     }, this.timer);
   }
 
   render() {
-    const marginBottom = `${(this.toastIndex + 1) * 10}px`;
-
     return (
-      <div
-        class={`toast ${this.variant} ${this.size} ${this.position} ${this.animation} ${this.visible ? 'visible' : 'hidden'}`}
-        style={{ 'margin-bottom': marginBottom }}
-      >
+      <div class={`toast ${this.variant} ${this.size} ${this.position} ${this.animation} ${this.visible ? 'visible' : 'hidden'}`}>
         {this.message}
       </div>
     );

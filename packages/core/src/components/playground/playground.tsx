@@ -18,7 +18,7 @@ export class Playground {
         {/* <prm-popup animation="scale" isOpen={this.isPopupOpen} size="full">
           <prm-button variant='danger' round="md" size="xl" onClick={this.togglePopup}>Close</prm-button>
         </prm-popup> */}
-        <prm-toast position="top-left" duration={5000} animation="slide-bottom" variant="success" size="md" message="This is a success toast!" show={true}></prm-toast>
+        <prm-toast position="top-left" timer={5000} animation="slide-bottom" variant="success" size="md" message="This is a success toast!"></prm-toast>
 
       </Host>
     );

@@ -28,11 +28,10 @@ export namespace Components {
     }
     interface PrmToast {
         "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
-        "duration": number;
         "message": string;
-        "position": 'top-center' | 'top-right' | 'top-left' | 'bottom-center' | 'bottom-right' | 'bottom-left' | 'center';
-        "show": boolean;
+        "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "timer": number;
         "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
 }
@@ -108,11 +107,10 @@ declare namespace LocalJSX {
     }
     interface PrmToast {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
-        "duration"?: number;
         "message"?: string;
-        "position"?: 'top-center' | 'top-right' | 'top-left' | 'bottom-center' | 'bottom-right' | 'bottom-left' | 'center';
-        "show"?: boolean;
+        "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "timer"?: number;
         "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
     interface IntrinsicElements {
