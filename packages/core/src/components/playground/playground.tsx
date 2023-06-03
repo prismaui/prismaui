@@ -23,7 +23,7 @@ export class Playground {
   }
 
   handleToastClosed2 = () => {
-    this.isToastOpen1 = false;
+    this.isToastOpen2 = false;
   }
 
 
