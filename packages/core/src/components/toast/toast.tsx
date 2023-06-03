@@ -1,4 +1,5 @@
-import { Component, Prop, h, State, Element, Watch } from '@stencil/core';
+import { Component, Prop, h, State, Element, Watch, Event } from '@stencil/core';
+import { EventEmitter } from 'stream';
 
 @Component({
   tag: 'prm-toast',
@@ -6,33 +7,40 @@ import { Component, Prop, h, State, Element, Watch } from '@stencil/core';
   shadow: true,
 })
 export class PrmToast {
+  public timeoutId: any;
+
   @Element() el: HTMLElement;
 
-  @Prop() message: string;
-  @Prop() variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
-  @Prop() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-right';
-  @Prop() timer: number = 3000;
-  @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
-  @Prop() closable: boolean = true;
-  @Prop() show: boolean = true;
+  @Prop({reflect:true}) message: string;
+  @Prop({reflect:true}) variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
+  @Prop({reflect:true}) size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+  @Prop({reflect:true}) position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-right';
+  @Prop({reflect:true}) timer: number = 3000;
+  @Prop({reflect:true}) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
+  @Prop({reflect:true}) closable: boolean = true;
+  @Prop({reflect:true,mutable:true}) show: boolean = true;
+  @Event() close: EventEmitter ;
 
   @State() visible: boolean = this.show;
 
   @Watch('show')
   onShowChange(newValue: boolean) {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+
     this.visible = newValue;
     if (newValue) {
-      setTimeout(() => {
-        this.visible = false;
+      this.timeoutId = setTimeout(() => {
+        this.closeToast();
       }, this.timer);
     }
   }
 
   componentWillLoad() {
     if (this.show) {
-      setTimeout(() => {
-        this.visible = false;
+      this.timeoutId = setTimeout(() => {
+        this.closeToast();
       }, this.timer);
     }
   }
@@ -73,6 +81,11 @@ export class PrmToast {
 
   closeToast() {
     this.visible = false;
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
+    this.close.emit('closed');
   }
 
   render() {

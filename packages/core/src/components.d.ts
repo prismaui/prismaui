@@ -45,6 +45,10 @@ export interface PrmButtonGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPrmButtonGroupElement;
 }
+export interface PrmToastCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPrmToastElement;
+}
 declare global {
     interface HTMLPrmButtonElement extends Components.PrmButton, HTMLStencilElement {
     }
@@ -111,6 +115,7 @@ declare namespace LocalJSX {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "closable"?: boolean;
         "message"?: string;
+        "onClose"?: (event: PrmToastCustomEvent<any>) => void;
         "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "show"?: boolean;
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';

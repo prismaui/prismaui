@@ -12,12 +12,16 @@ export class Playground {
     this.isToastOpen = !this.isToastOpen;
   }
 
+  handleToastClosed = () => {
+    this.isToastOpen = false;
+  }
+
   render() {
     return (
       <Host>
         <prm-button round="md" size="xl" onClick={this.toggleToast}>Test</prm-button>
 
-        <prm-toast show={this.isToastOpen} position="top-left" timer={5000} animation="slide-bottom" variant="success" size="lg" message="This is a success toast!"></prm-toast>
+        <prm-toast onClose={this.handleToastClosed} show={this.isToastOpen} position="top-left" timer={5000} animation="slide-bottom" variant="success" size="lg" message="This is a success toast!"></prm-toast>
 
       </Host>
     );
