@@ -1,0 +1,7 @@
+# Ignore everything
+*
+# Don't ignore the dist folder
+!dist/prismaui/
+# Ignore the dist folder itself
+dist
+dist/prismaui
