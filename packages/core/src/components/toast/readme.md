@@ -13,6 +13,7 @@
 | `closable`  | `closable`  |             | `boolean`                                                                                       | `true`        |
 | `message`   | `message`   |             | `string`                                                                                        | `undefined`   |
 | `position`  | `position`  |             | `"bottom-left" \| "bottom-right" \| "top-left" \| "top-right"`                                  | `'top-right'` |
+| `show`      | `show`      |             | `boolean`                                                                                       | `true`        |
 | `size`      | `size`      |             | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                                          | `'md'`        |
 | `timer`     | `timer`     |             | `number`                                                                                        | `3000`        |
 | `variant`   | `variant`   |             | `"danger" \| "dark" \| "info" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'`   |

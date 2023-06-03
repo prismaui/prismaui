@@ -26,6 +26,7 @@ export const PrmToast = defineContainer('prm-toast', undefined, [
     'position',
     'timer',
     'animation',
-    'closable'
+    'closable',
+    'show'
 ]);
 //# sourceMappingURL=components.js.map

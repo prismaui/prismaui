@@ -82,14 +82,14 @@ export declare interface PrmPopup extends Components.PrmPopup {}
 
 
 @ProxyCmp({
-  inputs: ['animation', 'closable', 'message', 'position', 'size', 'timer', 'variant']
+  inputs: ['animation', 'closable', 'message', 'position', 'show', 'size', 'timer', 'variant']
 })
 @Component({
   selector: 'prm-toast',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['animation', 'closable', 'message', 'position', 'size', 'timer', 'variant'],
+  inputs: ['animation', 'closable', 'message', 'position', 'show', 'size', 'timer', 'variant'],
 })
 export class PrmToast {
   protected el: HTMLElement;
