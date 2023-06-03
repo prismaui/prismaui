@@ -31,18 +31,23 @@ export class PrmToast {
 
     this.visible = newValue;
     if (newValue) {
-      this.timeoutId = setTimeout(() => {
-        this.closeToast();
-      }, this.timer);
+      this.startTimer();
     }
   }
 
   componentWillLoad() {
     if (this.show) {
-      this.timeoutId = setTimeout(() => {
-        this.closeToast();
-      }, this.timer);
+      this.startTimer();
     }
+  }
+
+  startTimer() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+    this.timeoutId = setTimeout(() => {
+      this.closeToast();
+    }, this.timer);
   }
 
   componentDidRender() {
@@ -85,6 +90,11 @@ export class PrmToast {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
     }
+    this.removeToast();
+  }
+
+  removeToast() {
+    this.el.remove();
     this.close.emit('closed');
   }
 
