@@ -1,6 +1,6 @@
 {
   "name": "@prismaui/angular",
-  "version": "0.0.1-y.4",
+  "version": "0.0.1-y.3",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
