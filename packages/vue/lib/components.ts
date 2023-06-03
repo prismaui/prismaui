@@ -42,6 +42,7 @@ export const PrmToast = /*@__PURE__*/ defineContainer<JSX.PrmToast>('prm-toast',
   'timer',
   'animation',
   'closable',
-  'show'
+  'show',
+  'close'
 ]);
 

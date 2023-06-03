@@ -96,10 +96,14 @@ export class PrmToast {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['close']);
   }
 }
 
 
-export declare interface PrmToast extends Components.PrmToast {}
+export declare interface PrmToast extends Components.PrmToast {
+
+  close: EventEmitter<CustomEvent<any>>;
+}
 
 
