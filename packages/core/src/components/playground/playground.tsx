@@ -18,8 +18,10 @@ export class Playground {
         {/* <prm-popup animation="scale" isOpen={this.isPopupOpen} size="full">
           <prm-button variant='danger' round="md" size="xl" onClick={this.togglePopup}>Close</prm-button>
         </prm-popup> */}
-        <prm-toast position="top-left" timer={5000} animation="slide-bottom" variant="success" size="md" message="This is a success toast!"></prm-toast>
-        <prm-toast position="top-left" timer={5000} animation="slide-bottom" variant="success" size="md" message="This is a success toast!"></prm-toast>
+        <prm-toast position="top-left" timer={5000000} animation="slide-bottom" variant="success" size="lg" message="This is a success toast!"></prm-toast>
+        <prm-toast position="top-left" timer={5000000} animation="slide-bottom" variant="dark" size="md" message="This is a success toast!"></prm-toast>
+        <prm-toast position="top-left" timer={5000000} animation="slide-bottom" variant="secondary" size="md" message="This is a success toast!"></prm-toast>
+
       </Host>
     );
   }
