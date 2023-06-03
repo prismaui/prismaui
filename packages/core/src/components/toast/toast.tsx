@@ -19,7 +19,7 @@ export class PrmToast {
   @Prop({reflect:true}) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
   @Prop({reflect:true}) closable: boolean = true;
   @Prop({reflect:true,mutable:true}) show: boolean = true;
-  @Event() close: EventEmitter ;
+  @Event() onclose: EventEmitter ;
 
   @State() visible: boolean = this.show;
 
@@ -95,7 +95,7 @@ export class PrmToast {
 
   removeToast() {
     this.el.remove();
-    this.close.emit('closed');
+    this.onclose.emit('closed');
   }
 
   render() {
