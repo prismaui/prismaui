@@ -8,7 +8,7 @@
     "test": "ng test"
   },
   "files": [
-    "dist/*"
+    "dist/prismaui/*"
   ],
   "publishConfig": {
     "access": "public",
