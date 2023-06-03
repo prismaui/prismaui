@@ -6,9 +6,9 @@ import { Component, h, Prop, State } from '@stencil/core';
   shadow: true
 })
 export class Popup {
-  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
-  @Prop() isOpen: boolean = false;
-  @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
+  @Prop({reflect:true}) size: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
+  @Prop({reflect:true}) isOpen: boolean = false;
+  @Prop({reflect:true}) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
 
   @State() isPopupOpen: boolean = false;
 
