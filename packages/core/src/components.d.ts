@@ -31,6 +31,7 @@ export namespace Components {
         "closable": boolean;
         "message": string;
         "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+        "show": boolean;
         "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "timer": number;
         "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
@@ -111,6 +112,7 @@ declare namespace LocalJSX {
         "closable"?: boolean;
         "message"?: string;
         "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+        "show"?: boolean;
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "timer"?: number;
         "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';

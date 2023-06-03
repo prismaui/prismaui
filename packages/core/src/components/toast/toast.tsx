@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Element } from '@stencil/core';
+import { Component, Prop, h, State, Element, Watch } from '@stencil/core';
 
 @Component({
   tag: 'prm-toast',
@@ -15,13 +15,26 @@ export class PrmToast {
   @Prop() timer: number = 3000;
   @Prop() animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
   @Prop() closable: boolean = true;
+  @Prop() show: boolean = true;
 
-  @State() visible: boolean = true;
+  @State() visible: boolean = this.show;
+
+  @Watch('show')
+  onShowChange(newValue: boolean) {
+    this.visible = newValue;
+    if (newValue) {
+      setTimeout(() => {
+        this.visible = false;
+      }, this.timer);
+    }
+  }
 
   componentWillLoad() {
-    setTimeout(() => {
-      this.visible = false;
-    }, this.timer);
+    if (this.show) {
+      setTimeout(() => {
+        this.visible = false;
+      }, this.timer);
+    }
   }
 
   componentDidRender() {
