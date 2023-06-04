@@ -15,7 +15,7 @@ export class PrmDrawer {
   @Prop({ reflect: true }) color: string = 'primary';
   @Prop({ reflect: true }) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
 
-  @Event() close: EventEmitter<void>;
+  @Event({eventName:'close'}) onclose: EventEmitter<void>;
 
   private drawer: HTMLElement;
   private overlayElement: HTMLElement;
@@ -101,7 +101,7 @@ export class PrmDrawer {
 
   closeDrawer() {
     this.toggle = false;
-    this.close.emit();
+    this.onclose.emit();
   }
 
   render() {

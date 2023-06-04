@@ -143,7 +143,7 @@ declare namespace LocalJSX {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "closable"?: boolean;
         "message"?: string;
-        "onClose"?: (event: PrmToastCustomEvent<any>) => void;
+        "onClose"?: (event: PrmToastCustomEvent<void>) => void;
         "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "show"?: boolean;
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';

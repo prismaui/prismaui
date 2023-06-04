@@ -1,6 +1,4 @@
-import { Component, Prop, h, State, Element, Watch, Event } from '@stencil/core';
-import { EventEmitter } from 'stream';
-
+import { Component, Prop, h, State, Element, Watch, Event,EventEmitter } from '@stencil/core';
 @Component({
   tag: 'prm-toast',
   styleUrl: 'toast.scss',
@@ -19,7 +17,7 @@ export class PrmToast {
   @Prop({reflect:true}) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
   @Prop({reflect:true}) closable: boolean = true;
   @Prop({reflect:true,mutable:true}) show: boolean = true;
-  @Event({eventName:'close'}) onclose: EventEmitter ;
+  @Event({eventName:'close'}) onclose: EventEmitter<void>;
 
   @State() visible: boolean = this.show;
 
@@ -95,7 +93,7 @@ export class PrmToast {
 
   removeToast() {
     this.el.remove();
-    this.onclose.emit('closed');
+    this.onclose.emit();
   }
 
   render() {
