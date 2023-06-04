@@ -105,25 +105,69 @@
 
   &.slide-top {
     &.open {
-      top: 0;
+      animation: slide-top-animation 0.3s ease-in-out forwards;
     }
   }
 
   &.slide-right {
     &.open {
-      right: 0;
+      animation: slide-right-animation 0.3s ease-in-out forwards;
     }
   }
 
   &.slide-bottom {
     &.open {
-      bottom: 0;
+      animation: slide-bottom-animation 0.3s ease-in-out forwards;
     }
   }
 
   &.slide-left {
     &.open {
-      left: 0;
+      animation: slide-left-animation 0.3s ease-in-out forwards;
     }
+  }
+}
+
+.drawer-content {
+  pointer-events: auto;
+}
+
+.drawer-overlay {
+  pointer-events: auto;
+}
+
+@keyframes slide-top-animation {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes slide-right-animation {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes slide-bottom-animation {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes slide-left-animation {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
   }
 }

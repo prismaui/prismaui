@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Watch } from '@stencil/core';
+import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
 import Hammer from 'hammerjs';
 
 @Component({
@@ -12,9 +12,13 @@ export class PrmDrawer {
   @Prop({ mutable: true }) toggle: boolean = false;
   @Prop({ reflect: true }) position: 'top' | 'right' | 'bottom' | 'left' = 'left';
   @Prop({ reflect: true }) touchFriendly: boolean = false;
-  @Prop({ reflect: true }) overlay: boolean = true;
+  @Prop({ reflect: true }) overlay: boolean = false;
   @Prop({ reflect: true }) color: string = 'primary';
   @Prop({ reflect: true }) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
+
+  private drawer: HTMLElement;
+  private overlayElement: HTMLElement;
+  private hammer: HammerManager;
 
   @Watch('toggle')
   toggleChanged() {
@@ -25,31 +29,79 @@ export class PrmDrawer {
     this.updateDrawer();
 
     if (this.touchFriendly) {
-      const hammer = new Hammer(this.el);
-      hammer.on('swipe', (ev) => {
-        if (ev.direction === Hammer.DIRECTION_LEFT || ev.direction === Hammer.DIRECTION_RIGHT || ev.direction === Hammer.DIRECTION_UP || ev.direction === Hammer.DIRECTION_DOWN) {
+      this.hammer = new Hammer(this.el);
+      this.hammer.on('swipe', (ev) => {
+        if (
+          ev.direction === Hammer.DIRECTION_LEFT ||
+          ev.direction === Hammer.DIRECTION_RIGHT ||
+          ev.direction === Hammer.DIRECTION_UP ||
+          ev.direction === Hammer.DIRECTION_DOWN
+        ) {
           this.toggle = false;
         }
       });
     }
   }
 
-  updateDrawer() {
-    const drawer = this.el.shadowRoot.querySelector('.drawer');
-    if (this.toggle) {
-      drawer.classList.add('open');
-    } else {
-      drawer.classList.remove('open');
+  disconnectedCallback() {
+    if (this.hammer) {
+      this.hammer.destroy();
     }
   }
 
+  updateDrawer() {
+    if (this.drawer) {
+      if (this.toggle) {
+        this.drawer.classList.add('open');
+        if (this.overlay) {
+          document.body.classList.add('drawer-overlay');
+          this.createOverlay();
+        }
+      } else {
+        this.drawer.classList.remove('open');
+        if (this.overlay) {
+          document.body.classList.remove('drawer-overlay');
+          this.removeOverlay();
+        }
+      }
+    }
+  }
+
+  createOverlay() {
+    if (!this.overlayElement) {
+      this.overlayElement = document.createElement('div');
+      this.overlayElement.classList.add('drawer-overlay');
+      this.overlayElement.addEventListener('click', this.handleOverlayClick);
+      document.body.appendChild(this.overlayElement);
+    }
+  }
+
+  removeOverlay() {
+    if (this.overlayElement) {
+      this.overlayElement.removeEventListener('click', this.handleOverlayClick);
+      this.overlayElement.parentNode.removeChild(this.overlayElement);
+      this.overlayElement = null;
+    }
+  }
+
+  handleOverlayClick = () => {
+    if (this.touchFriendly && this.overlay) {
+      this.toggle = false;
+    }
+  };
+
   render() {
     return (
-      <div class={`drawer ${this.position} ${this.color} ${this.animation} ${this.overlay ? 'overlay' : ''}`}>
-        <div class="drawer-content" onClick={() => this.touchFriendly && this.overlay && (this.toggle = false)}>
-          <slot />
+      <Host>
+        <div
+          class={`drawer ${this.position} ${this.color} ${this.animation} ${this.overlay ? 'overlay' : ''}`}
+          ref={(el) => (this.drawer = el)}
+        >
+          <div class="drawer-content">
+            <slot />
+          </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }
