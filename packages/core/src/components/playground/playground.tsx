@@ -6,35 +6,44 @@ import { Component, h, Host, State } from '@stencil/core';
   shadow: true,
 })
 export class Playground {
-  @State() isToastOpen1: boolean = false;
-  @State() isToastOpen2: boolean = false;
+  @State() toggle: boolean = false;
 
-  toggleToast1 = () => {
-    this.isToastOpen1 = !this.isToastOpen1;
-    this.isToastOpen2 = !this.isToastOpen2;
-  }
-
-  handleToastClosed1 = () => {
-    this.isToastOpen1 = false;
-  }
-
-  toggleToast2 = () => {
-    this.isToastOpen1 = !this.isToastOpen1;
-  }
-
-  handleToastClosed2 = () => {
-    this.isToastOpen2 = false;
-  }
-
+  toggleDrawer = () => {
+    this.toggle = !this.toggle;
+  };
 
   render() {
     return (
       <Host>
-        <prm-button round="md" size="xl" onClick={this.toggleToast1}>Test</prm-button>
-
-        <prm-toast onClose={this.handleToastClosed1} show={this.isToastOpen1} position="top-left" timer={5000} animation="slide-bottom" variant="success" size="lg" message="This is a success toast!"></prm-toast>
-        <prm-toast onClose={this.handleToastClosed2} show={this.isToastOpen2} position="top-left" timer={5000} animation="slide-bottom" variant="success" size="lg" message="This is a success toast!"></prm-toast>
-
+        <prm-button round="md" size="xl" onClick={this.toggleDrawer}>
+          Test
+        </prm-button>
+        <prm-drawer
+          toggle={this.toggle}
+          position="left"
+          touchFriendly={true}
+          overlay={true}
+          color="primary"
+          animation="slide-left"
+        >
+          <div class="prm-drawer__content">
+            <h2>Menu</h2>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </prm-drawer>
       </Host>
     );
   }
