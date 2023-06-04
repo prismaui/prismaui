@@ -1,13 +1,8 @@
-:host {
-  display: block;
-  position: relative;
-}
-
 .drawer {
   position: fixed;
-  background-color: var(--primary);
   z-index: 1000;
   transition: all 0.3s ease-in-out;
+  pointer-events: none;
 
   &.overlay {
     &:before {
@@ -130,14 +125,26 @@
 
 .drawer-content {
   pointer-events: auto;
+
+  &.touch-friendly {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -10px;
+      width: 10px;
+      height: 100%;
+      z-index: 1;
+    }
+  }
 }
 
 .drawer-overlay {
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 .drawer-overlay.open {
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 @keyframes slide-top-animation {

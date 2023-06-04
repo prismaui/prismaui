@@ -1,5 +1,4 @@
 import { Component, h, Prop, Element, Watch, Host, Event, EventEmitter } from '@stencil/core';
-import Hammer from 'hammerjs';
 
 @Component({
   tag: 'prm-drawer',
@@ -20,7 +19,6 @@ export class PrmDrawer {
 
   private drawer: HTMLElement;
   private overlayElement: HTMLElement;
-  private hammer: HammerManager;
 
   @Watch('toggle')
   toggleChanged() {
@@ -31,23 +29,17 @@ export class PrmDrawer {
     this.updateDrawer();
 
     if (this.touchFriendly) {
-      this.hammer = new Hammer(this.el);
-      this.hammer.on('swipe', (ev) => {
-        if (
-          ev.direction === Hammer.DIRECTION_LEFT ||
-          ev.direction === Hammer.DIRECTION_RIGHT ||
-          ev.direction === Hammer.DIRECTION_UP ||
-          ev.direction === Hammer.DIRECTION_DOWN
-        ) {
-          this.closeDrawer();
-        }
-      });
+      this.el.addEventListener('touchstart', this.handleTouchStart, { passive: true });
+      this.el.addEventListener('touchmove', this.handleTouchMove, { passive: true });
+      this.el.addEventListener('touchend', this.handleTouchEnd, { passive: true });
     }
   }
 
   disconnectedCallback() {
-    if (this.hammer) {
-      this.hammer.destroy();
+    if (this.touchFriendly) {
+      this.el.removeEventListener('touchstart', this.handleTouchStart);
+      this.el.removeEventListener('touchmove', this.handleTouchMove);
+      this.el.removeEventListener('touchend', this.handleTouchEnd);
     }
   }
 
@@ -90,9 +82,21 @@ export class PrmDrawer {
   }
 
   handleOverlayClick = () => {
-    if (this.touchFriendly && this.overlay) {
+    this.closeDrawer();
+  };
+
+  handleTouchStart = (event: TouchEvent) => {
+    if (!this.drawer.contains(event.target as Node)) {
       this.closeDrawer();
     }
+  };
+
+  handleTouchMove = (event: TouchEvent) => {
+    event.preventDefault();
+  };
+
+  handleTouchEnd = (event: TouchEvent) => {
+    event.preventDefault();
   };
 
   closeDrawer() {
@@ -107,7 +111,7 @@ export class PrmDrawer {
           class={`drawer ${this.position} ${this.color} ${this.animation} ${this.overlay ? 'overlay' : ''}`}
           ref={(el) => (this.drawer = el)}
         >
-          <div class="drawer-content">
+          <div class="drawer-content" onTouchStart={this.handleTouchStart} onTouchMove={this.handleTouchMove} onTouchEnd={this.handleTouchEnd}>
             <slot />
           </div>
         </div>
