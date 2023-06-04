@@ -10,11 +10,9 @@ export class PrmDrawer {
 
   @Prop({ mutable: true }) toggle: boolean = false;
   @Prop({ reflect: true }) position: 'top' | 'right' | 'bottom' | 'left' = 'left';
-  @Prop({ reflect: true }) touchFriendly: boolean = false;
   @Prop({ reflect: true }) overlay: boolean = true;
-  @Prop({ reflect: true }) color: string = 'primary';
+  @Prop({ reflect: true }) variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
   @Prop({ reflect: true }) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
-
   @Event({eventName:'close'}) onclose: EventEmitter<void>;
 
   private drawer: HTMLElement;
@@ -27,20 +25,10 @@ export class PrmDrawer {
 
   componentWillLoad() {
     this.updateDrawer();
-
-    if (this.touchFriendly) {
-      this.el.addEventListener('touchstart', this.handleTouchStart, { passive: false });
-      this.el.addEventListener('touchmove', this.handleTouchMove, { passive: false });
-      this.el.addEventListener('touchend', this.handleTouchEnd, { passive: false });
-    }
   }
 
   disconnectedCallback() {
-    if (this.touchFriendly) {
-      this.el.removeEventListener('touchstart', this.handleTouchStart);
-      this.el.removeEventListener('touchmove', this.handleTouchMove);
-      this.el.removeEventListener('touchend', this.handleTouchEnd);
-    }
+    
   }
 
   updateDrawer() {
@@ -85,19 +73,6 @@ export class PrmDrawer {
     this.closeDrawer();
   };
 
-  handleTouchStart = (event: TouchEvent) => {
-    if (!this.drawer.contains(event.target as Node)) {
-      this.closeDrawer();
-    }
-  };
-
-  handleTouchMove = (event: TouchEvent) => {
-    event.preventDefault();
-  };
-
-  handleTouchEnd = (event: TouchEvent) => {
-    event.preventDefault();
-  };
 
   closeDrawer() {
     this.toggle = false;
@@ -108,12 +83,8 @@ export class PrmDrawer {
     return (
       <Host>
         <div
-          class={`drawer ${this.position} ${this.color} ${this.animation} ${this.overlay ? 'overlay' : ''}`}
-          ref={(el) => (this.drawer = el)}
-          onTouchStart={this.handleTouchStart}
-          onTouchMove={this.handleTouchMove}
-          onTouchEnd={this.handleTouchEnd}
-        >
+          class={`drawer ${this.position} ${this.variant} ${this.animation} ${this.overlay ? 'overlay' : ''}`}
+          ref={(el) => (this.drawer = el)}>
           <div class="drawer-content">
             <slot />
           </div>

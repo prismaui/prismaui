@@ -21,11 +21,10 @@ export namespace Components {
     }
     interface PrmDrawer {
         "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
-        "color": string;
         "overlay": boolean;
         "position": 'top' | 'right' | 'bottom' | 'left';
         "toggle": boolean;
-        "touchFriendly": boolean;
+        "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
     interface PrmPlayground {
     }
@@ -125,12 +124,11 @@ declare namespace LocalJSX {
     }
     interface PrmDrawer {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
-        "color"?: string;
         "onClose"?: (event: PrmDrawerCustomEvent<void>) => void;
         "overlay"?: boolean;
         "position"?: 'top' | 'right' | 'bottom' | 'left';
         "toggle"?: boolean;
-        "touchFriendly"?: boolean;
+        "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
     interface PrmPlayground {
     }

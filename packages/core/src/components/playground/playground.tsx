@@ -21,28 +21,11 @@ export class Playground {
         <prm-drawer
           toggle={this.toggle}
           position="right"
-          touchFriendly={true}
-          overlay={false}
-          color="primary"
-          animation="scale"
+          overlay={true}
+          variant="primary"
+          animation="slide-left"
         >
-          <div class="prm-drawer__content">
-            <h2>Menu</h2>
-            <ul>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">Services</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
+          <prm-button variant='danger' onClick={this.toggleDrawer}>Close</prm-button>
         </prm-drawer>
       </Host>
     );
