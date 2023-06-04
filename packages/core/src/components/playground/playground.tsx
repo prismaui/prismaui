@@ -20,11 +20,11 @@ export class Playground {
         </prm-button>
         <prm-drawer
           toggle={this.toggle}
-          position="left"
+          position="right"
           touchFriendly={true}
           overlay={false}
           color="primary"
-          animation="slide-left"
+          animation="scale"
         >
           <div class="prm-drawer__content">
             <h2>Menu</h2>
