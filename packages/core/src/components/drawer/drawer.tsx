@@ -15,7 +15,7 @@ export class PrmDrawer {
   @Prop({ reflect: true }) color: string = 'primary';
   @Prop({ reflect: true }) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
 
-  @Event() prmDrawerClose: EventEmitter<void>;
+  @Event() close: EventEmitter<void>;
 
   private drawer: HTMLElement;
   private overlayElement: HTMLElement;
@@ -29,9 +29,9 @@ export class PrmDrawer {
     this.updateDrawer();
 
     if (this.touchFriendly) {
-      this.el.addEventListener('touchstart', this.handleTouchStart, { passive: true });
-      this.el.addEventListener('touchmove', this.handleTouchMove, { passive: true });
-      this.el.addEventListener('touchend', this.handleTouchEnd, { passive: true });
+      this.el.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+      this.el.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+      this.el.addEventListener('touchend', this.handleTouchEnd, { passive: false });
     }
   }
 
@@ -101,7 +101,7 @@ export class PrmDrawer {
 
   closeDrawer() {
     this.toggle = false;
-    this.prmDrawerClose.emit();
+    this.close.emit();
   }
 
   render() {
@@ -110,8 +110,11 @@ export class PrmDrawer {
         <div
           class={`drawer ${this.position} ${this.color} ${this.animation} ${this.overlay ? 'overlay' : ''}`}
           ref={(el) => (this.drawer = el)}
+          onTouchStart={this.handleTouchStart}
+          onTouchMove={this.handleTouchMove}
+          onTouchEnd={this.handleTouchEnd}
         >
-          <div class="drawer-content" onTouchStart={this.handleTouchStart} onTouchMove={this.handleTouchMove} onTouchEnd={this.handleTouchEnd}>
+          <div class="drawer-content">
             <slot />
           </div>
         </div>

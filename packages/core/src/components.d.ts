@@ -126,7 +126,7 @@ declare namespace LocalJSX {
     interface PrmDrawer {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "color"?: string;
-        "onPrmDrawerClose"?: (event: PrmDrawerCustomEvent<void>) => void;
+        "onClose"?: (event: PrmDrawerCustomEvent<void>) => void;
         "overlay"?: boolean;
         "position"?: 'top' | 'right' | 'bottom' | 'left';
         "toggle"?: boolean;

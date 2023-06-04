@@ -22,7 +22,7 @@ export class Playground {
           toggle={this.toggle}
           position="left"
           touchFriendly={true}
-          overlay={true}
+          overlay={false}
           color="primary"
           animation="slide-left"
         >

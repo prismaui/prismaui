@@ -56,6 +56,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    pointer-events: auto;
   }
 
   &.primary {
@@ -125,18 +126,6 @@
 
 .drawer-content {
   pointer-events: auto;
-
-  &.touch-friendly {
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -10px;
-      width: 10px;
-      height: 100%;
-      z-index: 1;
-    }
-  }
 }
 
 .drawer-overlay {
