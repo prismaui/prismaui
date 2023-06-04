@@ -136,6 +136,10 @@
   pointer-events: auto;
 }
 
+.drawer-overlay.open {
+  pointer-events: none;
+}
+
 @keyframes slide-top-animation {
   0% {
     top: -100%;

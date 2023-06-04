@@ -53,6 +53,10 @@ export interface PrmButtonGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPrmButtonGroupElement;
 }
+export interface PrmDrawerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPrmDrawerElement;
+}
 export interface PrmToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPrmToastElement;
@@ -122,6 +126,7 @@ declare namespace LocalJSX {
     interface PrmDrawer {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "color"?: string;
+        "onPrmDrawerClose"?: (event: PrmDrawerCustomEvent<void>) => void;
         "overlay"?: boolean;
         "position"?: 'top' | 'right' | 'bottom' | 'left';
         "toggle"?: boolean;
