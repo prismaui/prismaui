@@ -46,7 +46,9 @@ export class PrmDrawer {
   render() {
     return (
       <div class={`drawer ${this.position} ${this.color} ${this.animation} ${this.overlay ? 'overlay' : ''}`}>
-        <slot />
+        <div class="drawer-content" onClick={() => this.touchFriendly && this.overlay && (this.toggle = false)}>
+          <slot />
+        </div>
       </div>
     );
   }
