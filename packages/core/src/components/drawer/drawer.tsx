@@ -18,6 +18,8 @@ export class PrmDrawer {
   private drawer: HTMLElement;
   private overlayElement: HTMLElement;
 
+  removeOpenClassTimeOutId:any
+
   @Watch('toggle')
   toggleChanged() {
     this.updateDrawer();
@@ -28,7 +30,7 @@ export class PrmDrawer {
   }
 
   disconnectedCallback() {
-    
+    clearTimeout(this.removeOpenClassTimeOutId)
   }
 
   updateDrawer() {
@@ -45,9 +47,9 @@ export class PrmDrawer {
         }
       } else {
         this.drawer.classList.add('close');
-        setTimeout(() => {
+        this.removeOpenClassTimeOutId  = setTimeout(() => {
           this.drawer.classList.remove('open');
-        }, 300); // Match the animation-duration value in your SCSS file
+        }, 300);
         if (this.overlay) {
           document.body.classList.remove('drawer-overlay');
           this.removeOverlay();
