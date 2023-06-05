@@ -6,25 +6,21 @@
   transition: all 0.3s ease-in-out;
   pointer-events: none;
 
-  &.overlay {
-    &:before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
+  &.overlay:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
 
-    &.open {
-      &:before {
-        opacity: 1;
-      }
-    }
+  &.overlay.open:before {
+    opacity: 1;
   }
 
   &.top,
@@ -57,7 +53,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
+    left:0;
     pointer-events: auto;
   }
 
@@ -85,103 +81,71 @@
     background-color: var(--info);
   }
 
-  &.fade {
-    opacity: 0;
+  &.light {
+    background-color: var(--light);
+  }
 
-    &.open {
-      opacity: 1;
-    }
+  &.dark {
+    background-color: var(--dark);
+  }
+
+  &.fade {
+    transform: translateY(-100%);
   }
 
   &.scale {
     transform: scale(0);
-
-    &.open {
-      transform: scale(1);
-    }
   }
 
   &.slide-top {
-    &.open {
-      animation: slide-top-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-    &:not(.open) {
-      animation: slide-top-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1) reverse forwards;
-    }
-  }
-
-  &.slide-right {
-    &.open {
-      animation: slide-right-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-    &:not(.open) {
-      animation: slide-right-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1) reverse forwards;
-    }
+    transform: translateY(-100%);
   }
 
   &.slide-bottom {
-    &.open {
-      animation: slide-bottom-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-    &:not(.open) {
-      animation: slide-bottom-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1) reverse forwards;
-    }
+    transform: translateY(100%);
   }
 
   &.slide-left {
-    &.open {
-      animation: slide-left-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-    &:not(.open) {
-      animation: slide-left-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1) reverse forwards;
-    }
+    transform: translateX(-100%);
   }
-}
 
-.drawer-content {
-  pointer-events: auto;
-}
-
-.drawer-overlay {
-  pointer-events: none;
-}
-
-.drawer-overlay.open {
-  pointer-events: auto;
-}
-
-@keyframes slide-top-animation {
-  0% {
-    top: -100%;
+  &.slide-right {
+    transform: translateX(100%);
   }
-  100% {
+
+  &.open.fade {
+    transform: translateY(0);
+  }
+
+  &.open.scale {
+    transform: scale(1);
+  }
+
+  &.open.slide-top {
+    transform: translateY(0);
+  }
+
+  &.open.slide-bottom {
+    transform: translateY(0);
+  }
+
+  &.open.slide-left {
+    transform: translateX(0);
+  }
+
+  &.open.slide-right {
+    transform: translateX(0);
+  }
+
+  .drawer-content {
+    padding: 1rem;
+  }
+  
+  &-overlay {
+    position: fixed;
     top: 0;
-  }
-}
-
-@keyframes slide-right-animation {
-  0% {
-    right: -100%;
-  }
-  100% {
-    right: 0;
-  }
-}
-
-@keyframes slide-bottom-animation {
-  0% {
-    bottom: -100%;
-  }
-  100% {
-    bottom: 0;
-  }
-}
-
-@keyframes slide-left-animation {
-  0% {
-    left: -100%;
-  }
-  100% {
     left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
