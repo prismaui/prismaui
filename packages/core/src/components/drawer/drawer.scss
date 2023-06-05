@@ -2,9 +2,10 @@
   position: fixed;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   z-index: 1000;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.3s ease-in-out;
   pointer-events: none;
+  animation-duration: 0.3s;
+  transform: scale(0.8);
+  animation-fill-mode: both;
 
   &.overlay:before {
     content: '';
@@ -16,7 +17,6 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
   }
 
   &.overlay.open:before {
@@ -53,8 +53,59 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left:0;
+    left: 0;
     pointer-events: auto;
+
+    &.fade {
+      animation-name: drawerFadeOpenAnimation;
+    }
+
+    &.scale {
+      animation-name: drawerScaleOpenAnimation;
+    }
+
+    &.slide-top {
+      animation-name: drawerSlideTopAnimation;
+    }
+
+    &.slide-bottom {
+      animation-name: drawerSlideBottomAnimation;
+    }
+
+    &.slide-left {
+      animation-name: drawerSlideLeftAnimation;
+    }
+
+    &.slide-right {
+      animation-name: drawerSlideRightAnimation;
+    }
+
+  }
+
+  &.close {
+    &.fade {
+      animation-name: drawerFadeCloseAnimation;
+    }
+
+    &.scale {
+      animation-name: drawerScaleCloseAnimation;
+    }
+
+    &.slide-top {
+      animation-name: drawerSlideTopCloseAnimation;
+    }
+
+    &.slide-bottom {
+      animation-name: drawerSlideBottomCloseAnimation;
+    }
+
+    &.slide-left {
+      animation-name: drawerSlideLeftCloseAnimation;
+    }
+
+    &.slide-right {
+      animation-name: drawerSlideRightCloseAnimation;
+    }
   }
 
   &.primary {
@@ -89,63 +140,135 @@
     background-color: var(--dark);
   }
 
-  &.fade {
-    transform: translateY(-100%);
-  }
-
-  &.scale {
-    transform: scale(0);
-  }
-
-  &.slide-top {
-    transform: translateY(-100%);
-  }
-
-  &.slide-bottom {
-    transform: translateY(100%);
-  }
-
-  &.slide-left {
-    transform: translateX(-100%);
-  }
-
-  &.slide-right {
-    transform: translateX(100%);
-  }
-
-  &.open.fade {
-    transform: translateY(0);
-  }
-
-  &.open.scale {
-    transform: scale(1);
-  }
-
-  &.open.slide-top {
-    transform: translateY(0);
-  }
-
-  &.open.slide-bottom {
-    transform: translateY(0);
-  }
-
-  &.open.slide-left {
-    transform: translateX(0);
-  }
-
-  &.open.slide-right {
-    transform: translateX(0);
-  }
-
   .drawer-content {
     padding: 1rem;
   }
-  
+
   &-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+
+@keyframes drawerFadeOpenAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes drawerFadeCloseAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes drawerScaleOpenAnimation {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes drawerScaleCloseAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes drawerSlideTopAnimation {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawerSlideTopCloseAnimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes drawerSlideBottomAnimation {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawerSlideBottomCloseAnimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes drawerSlideLeftAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawerSlideLeftCloseAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes drawerSlideRightAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawerSlideRightCloseAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
   }
 }

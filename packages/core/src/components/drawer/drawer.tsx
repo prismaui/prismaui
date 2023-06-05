@@ -34,6 +34,7 @@ export class PrmDrawer {
   updateDrawer() {
     if (this.drawer) {
       if (this.toggle) {
+        this.drawer.classList.remove('close');
         this.drawer.classList.add('open');
         if (this.overlay) {
           document.body.classList.add('drawer-overlay');
@@ -43,7 +44,10 @@ export class PrmDrawer {
           this.removeOverlay();
         }
       } else {
-        this.drawer.classList.remove('open');
+        this.drawer.classList.add('close');
+        setTimeout(() => {
+          this.drawer.classList.remove('open');
+        }, 300); // Match the animation-duration value in your SCSS file
         if (this.overlay) {
           document.body.classList.remove('drawer-overlay');
           this.removeOverlay();
@@ -51,6 +55,7 @@ export class PrmDrawer {
       }
     }
   }
+  
 
   createOverlay() {
     if (!this.overlayElement) {

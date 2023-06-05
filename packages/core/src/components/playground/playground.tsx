@@ -50,10 +50,9 @@ export class Playground {
         </prm-button>
         <prm-drawer
           toggle={this.toggle}
-          position="right"
           overlay={true}
           variant="primary"
-          animation="slide-left"
+          animation="slide-top"
         >
           <prm-button variant='danger' onClick={this.toggleDrawer}>Close</prm-button>
         </prm-drawer>
