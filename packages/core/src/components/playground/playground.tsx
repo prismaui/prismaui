@@ -51,7 +51,7 @@ export class Playground {
         <prm-drawer
           toggle={this.toggle}
           variant="primary"
-          animation="slide-right"
+          animation="slide-top"
         >
           <prm-button variant='danger' onClick={this.toggleDrawer}>Close</prm-button>
         </prm-drawer>
