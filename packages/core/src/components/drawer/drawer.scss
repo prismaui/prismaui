@@ -6,21 +6,6 @@
   animation-duration: 0.3s;
   animation-fill-mode: both;
   left: -100%;
-  &.overlay:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-    opacity: 0;
-  }
-
-  &.overlay.open:before {
-    opacity: 1;
-  }
 
   &.open {
     top: 0;
@@ -51,33 +36,6 @@
 
     &.slide-right {
       animation-name: drawerSlideRightAnimation;
-    }
-
-  }
-
-  &.close {
-    &.fade {
-      animation-name: drawerFadeCloseAnimation;
-    }
-
-    &.scale {
-      animation-name: drawerScaleCloseAnimation;
-    }
-
-    &.slide-top {
-      animation-name: drawerSlideTopCloseAnimation;
-    }
-
-    &.slide-bottom {
-      animation-name: drawerSlideBottomCloseAnimation;
-    }
-
-    &.slide-left {
-      animation-name: drawerSlideLeftCloseAnimation;
-    }
-
-    &.slide-right {
-      animation-name: drawerSlideRightCloseAnimation;
     }
   }
 
@@ -116,14 +74,6 @@
   .drawer-content {
     padding: 1rem;
   }
-
-  &-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
 }
 
 @keyframes drawerFadeOpenAnimation {
@@ -133,16 +83,6 @@
 
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes drawerFadeCloseAnimation {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
 
@@ -156,16 +96,6 @@
   }
 }
 
-@keyframes drawerScaleCloseAnimation {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
-  }
-}
-
 @keyframes drawerSlideTopAnimation {
   0% {
     transform: translateY(-100%);
@@ -173,16 +103,6 @@
 
   100% {
     transform: translateY(0);
-  }
-}
-
-@keyframes drawerSlideTopCloseAnimation {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-100%);
   }
 }
 
@@ -196,16 +116,6 @@
   }
 }
 
-@keyframes drawerSlideBottomCloseAnimation {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(100%);
-  }
-}
-
 @keyframes drawerSlideLeftAnimation {
   0% {
     transform: translateX(-100%);
@@ -216,16 +126,6 @@
   }
 }
 
-@keyframes drawerSlideLeftCloseAnimation {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 @keyframes drawerSlideRightAnimation {
   0% {
     transform: translateX(100%);
@@ -233,15 +133,5 @@
 
   100% {
     transform: translateX(0);
-  }
-}
-
-@keyframes drawerSlideRightCloseAnimation {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(100%);
   }
 }
