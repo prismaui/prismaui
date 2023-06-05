@@ -6,6 +6,7 @@ import { Component, h, Host, State } from '@stencil/core';
   shadow: true,
 })
 export class Playground {
+  @State() toggle: boolean = false;
   @State() isToastOpen1: boolean = false;
   @State() isToastOpen2: boolean = false;
   @State() isPopupOpen:boolean = false
@@ -36,9 +37,24 @@ export class Playground {
   }
 
 
+  toggleDrawer = () => {
+    this.toggle = !this.toggle;
+  };
+
+
   render() {
     return (
       <Host>
+        <prm-button round="md" size="xl" onClick={this.toggleDrawer}>
+          Test Drawer
+        </prm-button>
+        <prm-drawer
+          toggle={this.toggle}
+          variant="primary"
+          animation="slide-top"
+        >
+          <prm-button variant='danger' onClick={this.toggleDrawer}>Close</prm-button>
+        </prm-drawer>
         <prm-button round="md" size="xl" onClick={this.toggleToast1}>Test Toast</prm-button>
         <prm-button variant='secondary' round="md" size="xl" onClick={this.togglePopup}>Test popup</prm-button>
 

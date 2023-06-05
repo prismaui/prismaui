@@ -19,6 +19,11 @@ export namespace Components {
     interface PrmButtonGroup {
         "round": 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
+    interface PrmDrawer {
+        "animation": | 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "toggle": boolean;
+        "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
+    }
     interface PrmPlayground {
     }
     interface PrmPopup {
@@ -45,6 +50,10 @@ export interface PrmButtonGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPrmButtonGroupElement;
 }
+export interface PrmDrawerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPrmDrawerElement;
+}
 export interface PrmToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPrmToastElement;
@@ -61,6 +70,12 @@ declare global {
     var HTMLPrmButtonGroupElement: {
         prototype: HTMLPrmButtonGroupElement;
         new (): HTMLPrmButtonGroupElement;
+    };
+    interface HTMLPrmDrawerElement extends Components.PrmDrawer, HTMLStencilElement {
+    }
+    var HTMLPrmDrawerElement: {
+        prototype: HTMLPrmDrawerElement;
+        new (): HTMLPrmDrawerElement;
     };
     interface HTMLPrmPlaygroundElement extends Components.PrmPlayground, HTMLStencilElement {
     }
@@ -83,6 +98,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "prm-button": HTMLPrmButtonElement;
         "prm-button-group": HTMLPrmButtonGroupElement;
+        "prm-drawer": HTMLPrmDrawerElement;
         "prm-playground": HTMLPrmPlaygroundElement;
         "prm-popup": HTMLPrmPopupElement;
         "prm-toast": HTMLPrmToastElement;
@@ -104,6 +120,12 @@ declare namespace LocalJSX {
         "onOnclick"?: (event: PrmButtonGroupCustomEvent<MouseEvent>) => void;
         "round"?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
     }
+    interface PrmDrawer {
+        "animation"?: | 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "onClose"?: (event: PrmDrawerCustomEvent<void>) => void;
+        "toggle"?: boolean;
+        "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
+    }
     interface PrmPlayground {
     }
     interface PrmPopup {
@@ -115,7 +137,7 @@ declare namespace LocalJSX {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "closable"?: boolean;
         "message"?: string;
-        "onClose"?: (event: PrmToastCustomEvent<any>) => void;
+        "onClose"?: (event: PrmToastCustomEvent<void>) => void;
         "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "show"?: boolean;
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -125,6 +147,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "prm-button": PrmButton;
         "prm-button-group": PrmButtonGroup;
+        "prm-drawer": PrmDrawer;
         "prm-playground": PrmPlayground;
         "prm-popup": PrmPopup;
         "prm-toast": PrmToast;
@@ -136,6 +159,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "prm-button": LocalJSX.PrmButton & JSXBase.HTMLAttributes<HTMLPrmButtonElement>;
             "prm-button-group": LocalJSX.PrmButtonGroup & JSXBase.HTMLAttributes<HTMLPrmButtonGroupElement>;
+            "prm-drawer": LocalJSX.PrmDrawer & JSXBase.HTMLAttributes<HTMLPrmDrawerElement>;
             "prm-playground": LocalJSX.PrmPlayground & JSXBase.HTMLAttributes<HTMLPrmPlaygroundElement>;
             "prm-popup": LocalJSX.PrmPopup & JSXBase.HTMLAttributes<HTMLPrmPopupElement>;
             "prm-toast": LocalJSX.PrmToast & JSXBase.HTMLAttributes<HTMLPrmToastElement>;

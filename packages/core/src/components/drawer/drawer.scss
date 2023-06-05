@@ -1,0 +1,274 @@
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.drawer-content {
+  background-color: white;
+  border-radius: 0;
+  height: 100%;
+  overflow: hidden;
+  animation-duration: 0.3s;
+  transform-origin: center;
+
+  &.fade {
+    &.open {
+      animation-name: drawerFadeOpenAnimation;
+    }
+
+    &.close {
+      animation-name: drawerFadeCloseAnimation;
+    }
+  }
+
+  &.scale {
+    &.open {
+      animation-name: drawerScaleOpenAnimation;
+    }
+
+    &.close {
+      animation-name: drawerScaleCloseAnimation;
+    }
+  }
+
+  &.slide-top {
+    &.open {
+      animation-name: drawerSlideTopOpenAnimation;
+    }
+
+    &.close {
+      animation-name: drawerSlideTopCloseAnimation;
+    }
+  }
+
+  &.slide-bottom {
+    &.open {
+      animation-name: drawerSlideBottomOpenAnimation;
+    }
+
+    &.close {
+      animation-name: drawerSlideBottomCloseAnimation;
+    }
+  }
+
+  &.slide-left {
+    &.open {
+      animation-name: drawerSlideLeftOpenAnimation;
+    }
+
+    &.close {
+      animation-name: drawerSlideLeftCloseAnimation;
+    }
+  }
+
+  &.slide-right {
+    &.open {
+      animation-name: drawerSlideRightOpenAnimation;
+    }
+
+    &.close {
+      animation-name: drawerSlideRightCloseAnimation;
+    }
+  }
+
+  &.primary {
+    background-color: var(--primary);
+  }
+
+  &.secondary {
+    background-color: var(--secondary);
+  }
+
+  &.success {
+    background-color: var(--success);
+  }
+
+  &.warning {
+    background-color: var(--warning);
+  }
+
+  &.danger {
+    background-color: var(--danger);
+  }
+
+  &.info {
+    background-color: var(--info);
+  }
+
+  &.light {
+    background-color: var(--light);
+  }
+
+  &.dark {
+    background-color: var(--dark);
+  }
+
+  padding: 1rem;
+}
+
+@keyframes drawerFadeOpenAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawerFadeCloseAnimation {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes drawerScaleOpenAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  20% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+
+  80% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+   100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawerScaleCloseAnimation {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+@keyframes drawerSlideTopOpenAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawerSlideTopCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes drawerSlideBottomOpenAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawerSlideBottomCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes drawerSlideLeftOpenAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawerSlideLeftCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes drawerSlideRightOpenAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawerSlideRightCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
