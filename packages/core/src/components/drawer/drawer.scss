@@ -5,7 +5,6 @@
   pointer-events: none;
   animation-duration: 0.3s;
   animation-fill-mode: both;
-  left: -100%;
 
   &.open {
     top: 0;
@@ -36,6 +35,32 @@
 
     &.slide-right {
       animation-name: drawerSlideRightAnimation;
+    }
+  }
+
+  &.close {
+    &.fade {
+      animation-name: drawerFadeCloseAnimation;
+    }
+  
+    &.scale {
+      animation-name: drawerScaleCloseAnimation;
+    }
+  
+    &.slide-top {
+      animation-name: drawerSlideTopCloseAnimation;
+    }
+  
+    &.slide-bottom {
+      animation-name: drawerSlideBottomCloseAnimation;
+    }
+  
+    &.slide-left {
+      animation-name: drawerSlideLeftCloseAnimation;
+    }
+  
+    &.slide-right {
+      animation-name: drawerSlideRightCloseAnimation;
     }
   }
 
@@ -75,63 +100,172 @@
     padding: 1rem;
   }
 }
-
 @keyframes drawerFadeOpenAnimation {
-  0% {
+  from {
     opacity: 0;
   }
 
-  100% {
+  to {
     opacity: 1;
+  }
+}
+
+@keyframes drawerFadeCloseAnimation {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 
 @keyframes drawerScaleOpenAnimation {
   0% {
-    transform: scale(0);
+    opacity: 0;
+    transform: scale(0.2);
   }
 
-  100% {
+  20% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+
+  80% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+   100% {
+    opacity: 1;
     transform: scale(1);
   }
 }
 
-@keyframes drawerSlideTopAnimation {
+@keyframes drawerScaleCloseAnimation {
   0% {
-    transform: translateY(-100%);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  20% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+
+  80% {
+    opacity: 0.5;
+    transform: scale(0.8);
   }
 
   100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+@keyframes drawerSlideTopAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes drawerSlideTopCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
   }
 }
 
 @keyframes drawerSlideBottomAnimation {
-  0% {
+  from {
+    opacity: 0;
     transform: translateY(100%);
   }
 
-  100% {
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
+@keyframes drawerSlideBottomCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
 @keyframes drawerSlideLeftAnimation {
-  0% {
+  from {
+    opacity: 0;
     transform: translateX(-100%);
   }
 
-  100% {
+  to {
+    opacity: 1;
     transform: translateX(0);
   }
 }
 
+@keyframes drawerSlideLeftCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
 @keyframes drawerSlideRightAnimation {
-  0% {
+  from {
+    opacity: 0;
     transform: translateX(100%);
   }
 
-  100% {
+  to {
+    opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes drawerSlideRightCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(100%);
   }
 }

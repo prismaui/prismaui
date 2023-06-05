@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Watch, Host, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Element, Host, Event, EventEmitter, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'prm-drawer',
@@ -12,13 +12,15 @@ export class PrmDrawer {
   @Prop({ reflect: true }) variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
   @Prop({ reflect: true }) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
   @Event({ eventName: 'close' }) onClose: EventEmitter<void>;
+  @State() isOpen:boolean = false
 
   @Watch('toggle')
-  toggleChanged() {
+  onShowChange(newValue: boolean) {
+    this.toggle = newValue;
   }
 
-  componentWillLoad() {
-    // this.updateDrawer();
+  componentWillRender() {
+    this.isOpen = this.toggle;
   }
 
   disconnectedCallback() {
@@ -37,12 +39,15 @@ export class PrmDrawer {
   render() {
     return (
       <Host>
-        <div class={`drawer ${this.variant} ${this.animation} ${this.toggle ? 'open' : 'close'}`}>
-          <div class="drawer-content">
-            <slot />
-          </div>
+        <div class={`drawer ${this.variant} ${this.animation} ${this.isOpen ? 'open' : 'close'}`}>
+          {
+            this.toggle && <div class="drawer-content">
+              <slot />
+            </div>
+          }
         </div>
       </Host>
     );
   }
+
 }
