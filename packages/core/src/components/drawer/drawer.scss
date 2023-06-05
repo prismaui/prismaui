@@ -4,7 +4,6 @@
   z-index: 1000;
   pointer-events: none;
   animation-duration: 0.3s;
-  transform: scale(0.8);
   animation-fill-mode: both;
 
   &.overlay:before {
@@ -23,32 +22,7 @@
     opacity: 1;
   }
 
-  &.top,
-  &.bottom {
-    width: 100%;
-  }
-
-  &.left,
-  &.right {
-    height: 100%;
-  }
-
-  &.top {
-    top: -100%;
-  }
-
-  &.right {
-    right: -100%;
-  }
-
-  &.bottom {
-    bottom: -100%;
-  }
-
-  &.left {
-    left: -100%;
-  }
-
+  left: -100%;
   &.open {
     top: 0;
     right: 0;

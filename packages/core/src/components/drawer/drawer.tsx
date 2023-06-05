@@ -9,7 +9,6 @@ export class PrmDrawer {
   @Element() el: HTMLElement;
 
   @Prop({ mutable: true }) toggle: boolean = false;
-  @Prop({ reflect: true }) position: 'top' | 'right' | 'bottom' | 'left' = 'left';
   @Prop({ reflect: true }) overlay: boolean = true;
   @Prop({ reflect: true }) variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
   @Prop({ reflect: true }) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
@@ -90,7 +89,7 @@ export class PrmDrawer {
     return (
       <Host>
         <div
-          class={`drawer ${this.position} ${this.variant} ${this.animation} ${this.overlay ? 'overlay' : ''}`}
+          class={`drawer ${this.variant} ${this.animation} ${this.overlay ? 'overlay' : ''}`}
           ref={(el) => (this.drawer = el)}>
           <div class="drawer-content">
             <slot />

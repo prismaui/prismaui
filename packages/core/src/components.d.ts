@@ -22,7 +22,6 @@ export namespace Components {
     interface PrmDrawer {
         "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "overlay": boolean;
-        "position": 'top' | 'right' | 'bottom' | 'left';
         "toggle": boolean;
         "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
@@ -126,7 +125,6 @@ declare namespace LocalJSX {
         "animation"?: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
         "onClose"?: (event: PrmDrawerCustomEvent<void>) => void;
         "overlay"?: boolean;
-        "position"?: 'top' | 'right' | 'bottom' | 'left';
         "toggle"?: boolean;
         "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
