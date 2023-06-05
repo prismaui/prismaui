@@ -50,12 +50,15 @@
     &.sm {
       width: 300px;
     }
+
     &.md {
       width: 400px;
     }
+
     &.lg {
       width: 500px;
     }
+
     &.xl {
       width: 600px;
     }
@@ -65,12 +68,15 @@
     &.sm {
       width: 350px;
     }
+
     &.md {
       width: 450px;
     }
+
     &.lg {
       width: 550px;
     }
+
     &.xl {
       width: 650px;
     }
@@ -80,12 +86,15 @@
     &.sm {
       width: 400px;
     }
+
     &.md {
       width: 500px;
     }
+
     &.lg {
       width: 600px;
     }
+
     &.xl {
       width: 700px;
     }
@@ -95,12 +104,15 @@
     &.sm {
       width: 450px;
     }
+
     &.md {
       width: 550px;
     }
+
     &.lg {
       width: 650px;
     }
+
     &.xl {
       width: 750px;
     }
@@ -110,12 +122,15 @@
     &.sm {
       width: 500px;
     }
+
     &.md {
       width: 600px;
     }
+
     &.lg {
       width: 700px;
     }
+
     &.xl {
       width: 800px;
     }
@@ -126,6 +141,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -135,6 +151,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -145,19 +162,23 @@
     opacity: 0;
     transform: scale(0.2);
   }
+
   20% {
     opacity: 0.5;
     transform: scale(0.8);
   }
+
   50% {
     opacity: 0.7;
     transform: scale(1.2);
   }
+
   80% {
     opacity: 0.9;
     transform: scale(1.05);
   }
-  100% {
+
+   100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -168,31 +189,34 @@
     opacity: 1;
     transform: scale(1);
   }
+
   20% {
     opacity: 0.9;
     transform: scale(1.05);
   }
+
   50% {
     opacity: 0.7;
     transform: scale(1.2);
   }
+
   80% {
     opacity: 0.5;
     transform: scale(0.8);
   }
+
   100% {
     opacity: 0;
     transform: scale(0.2);
   }
 }
 
-
-
 @keyframes popupSlideTopAnimation {
   from {
     opacity: 0;
     transform: translateY(-100%);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -204,6 +228,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+
   to {
     opacity: 0;
     transform: translateY(-100%);
@@ -215,6 +240,7 @@
     opacity: 0;
     transform: translateY(100%);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -226,6 +252,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+
   to {
     opacity: 0;
     transform: translateY(100%);
@@ -237,6 +264,7 @@
     opacity: 0;
     transform: translateX(-100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -248,6 +276,7 @@
     opacity: 1;
     transform: translateX(0);
   }
+
   to {
     opacity: 0;
     transform: translateX(-100%);
@@ -259,6 +288,7 @@
     opacity: 0;
     transform: translateX(100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -270,57 +300,61 @@
     opacity: 1;
     transform: translateX(0);
   }
+
   to {
     opacity: 0;
     transform: translateX(100%);
   }
 }
 
+.popup-card.open {
+  &.fade {
+    animation-name: popupFadeOpenAnimation;
+  }
 
-.popup-card.open.fade {
-  animation-name: popupFadeOpenAnimation;
+  &.scale {
+    animation-name: popupScaleOpenAnimation;
+  }
+
+  &.slide-top {
+    animation-name: popupSlideTopAnimation;
+  }
+
+  &.slide-bottom {
+    animation-name: popupSlideBottomAnimation;
+  }
+
+  &.slide-left {
+    animation-name: popupSlideLeftAnimation;
+  }
+
+  &.slide-right {
+    animation-name: popupSlideRightAnimation;
+  }
 }
 
-.popup-card.close.fade {
-  animation-name: popupFadeCloseAnimation;
-}
+.popup-card.close {
+  &.fade {
+    animation-name: popupFadeCloseAnimation;
+  }
 
-.popup-card.open.scale {
-  animation-name: popupScaleOpenAnimation;
-}
+  &.scale {
+    animation-name: popupScaleCloseAnimation;
+  }
 
-.popup-card.close.scale {
-  animation-name: popupScaleCloseAnimation;
-}
+  &.slide-top {
+    animation-name: popupSlideTopCloseAnimation;
+  }
 
-.popup-card.open.slide-top {
-  animation-name: popupSlideTopAnimation;
-}
+  &.slide-bottom {
+    animation-name: popupSlideBottomCloseAnimation;
+  }
 
-.popup-card.close.slide-top {
-  animation-name: popupSlideTopCloseAnimation;
-}
+  &.slide-left {
+    animation-name: popupSlideLeftCloseAnimation;
+  }
 
-.popup-card.open.slide-bottom {
-  animation-name: popupSlideBottomAnimation;
-}
-
-.popup-card.close.slide-bottom {
-  animation-name: popupSlideBottomCloseAnimation;
-}
-
-.popup-card.open.slide-left {
-  animation-name: popupSlideLeftAnimation;
-}
-
-.popup-card.close.slide-left {
-  animation-name: popupSlideLeftCloseAnimation;
-}
-
-.popup-card.open.slide-right {
-  animation-name: popupSlideRightAnimation;
-}
-
-.popup-card.close.slide-right {
-  animation-name: popupSlideRightCloseAnimation;
+  &.slide-right {
+    animation-name: popupSlideRightCloseAnimation;
+  }
 }
