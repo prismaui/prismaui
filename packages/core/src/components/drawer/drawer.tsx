@@ -26,7 +26,7 @@ export class Drawer {
       <div class={`drawer-overlay ${this.isOpen ? 'open' : ''}`}>
         <div
           class={`drawer-content ${this.animation} ${this.isOpen ? 'open' : 'close'} ${this.variant}`}>
-          <slot />
+          {this.isOpen && <slot />}
         </div>
       </div>
     );
