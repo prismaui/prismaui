@@ -27,6 +27,14 @@ export const PrmButtonGroup = /*@__PURE__*/ defineContainer<JSX.PrmButtonGroup>(
 ]);
 
 
+export const PrmDrawer = /*@__PURE__*/ defineContainer<JSX.PrmDrawer>('prm-drawer', undefined, [
+  'toggle',
+  'variant',
+  'animation',
+  'close'
+]);
+
+
 export const PrmPopup = /*@__PURE__*/ defineContainer<JSX.PrmPopup>('prm-popup', undefined, [
   'size',
   'isOpen',

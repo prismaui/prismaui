@@ -60,6 +60,32 @@ export declare interface PrmButtonGroup extends Components.PrmButtonGroup {
 
 
 @ProxyCmp({
+  inputs: ['animation', 'toggle', 'variant']
+})
+@Component({
+  selector: 'prm-drawer',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['animation', 'toggle', 'variant'],
+})
+export class PrmDrawer {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['close']);
+  }
+}
+
+
+export declare interface PrmDrawer extends Components.PrmDrawer {
+
+  close: EventEmitter<CustomEvent<void>>;
+}
+
+
+@ProxyCmp({
   inputs: ['animation', 'isOpen', 'size']
 })
 @Component({
@@ -103,7 +129,7 @@ export class PrmToast {
 
 export declare interface PrmToast extends Components.PrmToast {
 
-  close: EventEmitter<CustomEvent<any>>;
+  close: EventEmitter<CustomEvent<void>>;
 }
 
 

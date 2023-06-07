@@ -14,6 +14,12 @@ export const PrmButtonGroup = defineContainer('prm-button-group', undefined, [
     'round',
     'onclick'
 ]);
+export const PrmDrawer = defineContainer('prm-drawer', undefined, [
+    'toggle',
+    'variant',
+    'animation',
+    'close'
+]);
 export const PrmPopup = defineContainer('prm-popup', undefined, [
     'size',
     'isOpen',

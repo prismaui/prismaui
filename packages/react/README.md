@@ -19,8 +19,10 @@ To use `@prismaui/react`, follow the steps below:
 1. Import the desired components from `@prismaui/react` in your React component file (e.g., `App.js`):
 
 ```jsx
-import React from 'react';
-import { PrmButton } from '@prismaui/react';
+'use client'
+import { defineCustomElements, PrmButton } from '@prismaui/react'
+
+defineCustomElements()
 
 function App() {
   return (
@@ -37,9 +39,9 @@ export default App;
 
 To add the custom color variables to your CSS file, you can follow these steps:
 
-1. Open your CSS file (e.g., `styles.css`).
+1. Open your CSS file (e.g., `global.css`).
 
-2. Add the following CSS code to define the custom color variables:
+2. Add the following CSS code to your global CSS Variables:
 
 ```css
 :root {
