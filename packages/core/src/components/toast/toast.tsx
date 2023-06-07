@@ -97,9 +97,11 @@ export class PrmToast {
   }
 
   render() {
+    if(!this.show){
+      return null
+    }
     return (
       <div class={`toast ${this.variant} ${this.size} ${this.animation} ${this.visible ? 'visible' : 'hidden'}`}>
-
         <div class="toast-content">{this.message}</div>
         {this.closable && <button onClick={() => this.closeToast()} class="close-btn">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width={1.5} stroke="currentColor" >
