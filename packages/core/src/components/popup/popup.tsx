@@ -21,10 +21,12 @@ export class Popup {
   }
 
   render() {
+    if(!this.isOpen){
+      return null
+    }
     return (
       <div class={`popup-overlay ${this.isPopupOpen ? 'open' : ''}`}>
         <div class={`popup-card ${this.size} ${this.isPopupOpen ? 'open' : 'close'} ${this.animation}`}>
-          {this.isPopupOpen &&
             <div><div class="popup-header">
               <slot name="header" />
             </div>
@@ -34,7 +36,7 @@ export class Popup {
               <div class="popup-footer">
                 <slot name="footer" />
               </div>
-            </div>}
+            </div>
         </div>
       </div>
     );

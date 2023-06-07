@@ -22,6 +22,9 @@ export class Drawer {
   }
 
   render() {
+    if(!this.toggle){
+      return null
+    }
     return (
       <div class={`drawer-overlay ${this.isOpen ? 'open' : ''}`}>
         <div
