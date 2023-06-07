@@ -1,4 +1,4 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'prm-popup',
@@ -12,7 +12,12 @@ export class Popup {
 
   @State() isPopupOpen: boolean = false;
 
-  componentWillRender() {
+  @Watch('isOpen')
+  handleOpenChange(newValue: boolean) {
+    this.isPopupOpen = newValue;
+  }
+
+  componentWillLoad() {
     this.isPopupOpen = this.isOpen;
   }
 
@@ -21,15 +26,14 @@ export class Popup {
   }
 
   render() {
-    if(!this.isOpen){
-      return null
-    }
     return (
       <div class={`popup-overlay ${this.isPopupOpen ? 'open' : ''}`}>
         <div class={`popup-card ${this.size} ${this.isPopupOpen ? 'open' : 'close'} ${this.animation}`}>
-            <div><div class="popup-header">
-              <slot name="header" />
-            </div>
+          {this.isOpen ? (
+            <div>
+              <div class="popup-header">
+                <slot name="header" />
+              </div>
               <div class="popup-content">
                 <slot />
               </div>
@@ -37,6 +41,7 @@ export class Popup {
                 <slot name="footer" />
               </div>
             </div>
+          ) : null}
         </div>
       </div>
     );

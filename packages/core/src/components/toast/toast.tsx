@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Element, Watch, Event,EventEmitter } from '@stencil/core';
+import { Component, Prop, h, State, Element, Watch, Event, EventEmitter } from '@stencil/core';
 @Component({
   tag: 'prm-toast',
   styleUrl: 'toast.scss',
@@ -9,15 +9,15 @@ export class PrmToast {
 
   @Element() el: HTMLElement;
 
-  @Prop({reflect:true}) message: string;
-  @Prop({reflect:true}) variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
-  @Prop({reflect:true}) size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @Prop({reflect:true}) position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-right';
-  @Prop({reflect:true}) timer: number = 3000;
-  @Prop({reflect:true}) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
-  @Prop({reflect:true}) closable: boolean = true;
-  @Prop({reflect:true,mutable:true}) show: boolean = false;
-  @Event({eventName:'close'}) onclose: EventEmitter<void>;
+  @Prop({ reflect: true }) message: string;
+  @Prop({ reflect: true }) variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark' = 'primary';
+  @Prop({ reflect: true }) size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+  @Prop({ reflect: true }) position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'top-right';
+  @Prop({ reflect: true }) timer: number = 3000;
+  @Prop({ reflect: true }) animation: 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right' = 'fade';
+  @Prop({ reflect: true }) closable: boolean = true;
+  @Prop({ reflect: true, mutable: true }) show: boolean = false;
+  @Event({ eventName: 'close' }) onclose: EventEmitter<void>;
 
   @State() visible: boolean = this.show;
 
@@ -82,23 +82,24 @@ export class PrmToast {
   }
 
   closeToast() {
-    this.show = false;
+    this.visible = false;
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
     }
+    this.show = false;
+    this.onclose.emit()
     this.removeToast();
   }
 
   removeToast() {
     this.el.remove();
-    this.onclose.emit();
   }
 
   render() {
-    if(!this.show){
-      return null
-    }
+    // if (!this.show) {
+    //   return null
+    // }
     return (
       <div class={`toast ${this.variant} ${this.size} ${this.animation} ${this.show ? 'visible' : 'hidden'}`}>
         <div class="toast-content">{this.message}</div>

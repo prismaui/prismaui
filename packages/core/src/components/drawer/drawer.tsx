@@ -22,14 +22,14 @@ export class Drawer {
   }
 
   render() {
-    if(!this.toggle){
-      return null
-    }
+    // if (!this.toggle) {
+    //   return null
+    // }
     return (
       <div class={`drawer-overlay ${this.isOpen ? 'open' : ''}`}>
         <div
           class={`drawer-content ${this.animation} ${this.isOpen ? 'open' : 'close'} ${this.variant}`}>
-          {this.isOpen && <slot />}
+          {this.toggle && <slot />}
         </div>
       </div>
     );
