@@ -45,7 +45,7 @@ export class Playground {
   render() {
     return (
       <Host>
-        <prm-button loading='true' round="md" size="xl" onClick={this.toggleDrawer}>
+        <prm-button round="md" size="xl" onClick={this.toggleDrawer}>
           Test Drawer
         </prm-button>
         <prm-drawer
