@@ -24,7 +24,7 @@ export class Button {
 
   render() {
     const buttonClass = `${this.customclass} button-${this.size} button-round-${this.round}`;
-    const isDisabled = this.disabled || !!this.loading;
+    const isDisabled = this.disabled;
     const buttonLabel = this.disabled ? 'Disabled Button' : `Button with ${this.variant} variant`;
 
     const buttonProps = {
