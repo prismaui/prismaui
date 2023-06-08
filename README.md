@@ -1,4 +1,4 @@
-## Installation
+## Installation/ For React
 
 To install `@prismaui/react`, you can use npm or yarn:
 
@@ -96,7 +96,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 This package is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 
-## Installation
+## Installation / For Vue
 
 ```shell
 npm i @prismaui/vue
@@ -210,7 +210,7 @@ Make sure to import the required components and use them accordingly in your Vue
 
 This is the documentation for the npm package `@prismaui/angular`. This package provides Angular components and functionality for the Prisma UI library.
 
-## Installation
+## Installation / For Angular
 
 To install `@prismaui/angular`, you can use npm or yarn:
 
@@ -311,7 +311,7 @@ This package is licensed under the [MIT License](https://opensource.org/licenses
 
 This is the documentation for the npm package `@prismaui/core`. This package provides core functionality for the Prisma UI library.
 
-## Installation
+## Installation / For Simple HTML
 
 To install `@prismaui/core`, you can use npm or yarn:
 
