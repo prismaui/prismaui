@@ -8,11 +8,8 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   pointer-events: none;
-
-  &.open {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .drawer-content {

@@ -48,13 +48,13 @@ export class Playground {
         <prm-button round="md" size="xl" onClick={this.toggleDrawer}>
           Test Drawer
         </prm-button>
+       {this.toggle && 
         <prm-drawer
-          toggle={this.toggle}
-          variant="primary"
-          animation="slide-top"
-        >
-          <prm-button variant='danger' onClick={this.toggleDrawer}>Close</prm-button>
-        </prm-drawer>
+        variant="primary"
+        animation="slide-top"
+      >
+        <prm-button variant='danger' onClick={this.toggleDrawer}>Close</prm-button>
+      </prm-drawer>}
         <prm-button round="md" size="xl" onClick={this.toggleToast1}>Test Toast</prm-button>
         <prm-button variant='secondary' round="md" size="xl" onClick={this.togglePopup}>Test popup</prm-button>
 
