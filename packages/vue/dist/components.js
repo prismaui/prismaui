@@ -15,7 +15,6 @@ export const PrmButtonGroup = defineContainer('prm-button-group', undefined, [
     'onclick'
 ]);
 export const PrmDrawer = defineContainer('prm-drawer', undefined, [
-    'toggle',
     'variant',
     'animation',
     'close'

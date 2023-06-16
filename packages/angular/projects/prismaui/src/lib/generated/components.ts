@@ -60,14 +60,14 @@ export declare interface PrmButtonGroup extends Components.PrmButtonGroup {
 
 
 @ProxyCmp({
-  inputs: ['animation', 'toggle', 'variant']
+  inputs: ['animation', 'variant']
 })
 @Component({
   selector: 'prm-drawer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['animation', 'toggle', 'variant'],
+  inputs: ['animation', 'variant'],
 })
 export class PrmDrawer {
   protected el: HTMLElement;

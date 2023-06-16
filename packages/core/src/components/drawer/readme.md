@@ -10,7 +10,6 @@
 | Property    | Attribute   | Description | Type                                                                                            | Default     |
 | ----------- | ----------- | ----------- | ----------------------------------------------------------------------------------------------- | ----------- |
 | `animation` | `animation` |             | `"fade" \| "scale" \| "slide-bottom" \| "slide-left" \| "slide-right" \| "slide-top"`           | `'fade'`    |
-| `toggle`    | `toggle`    |             | `boolean`                                                                                       | `false`     |
 | `variant`   | `variant`   |             | `"danger" \| "dark" \| "info" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 
 
