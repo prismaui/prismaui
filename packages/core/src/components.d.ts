@@ -21,6 +21,7 @@ export namespace Components {
     }
     interface PrmDrawer {
         "animation": 'fade' | 'scale' | 'slide-top' | 'slide-bottom' | 'slide-left' | 'slide-right';
+        "closeDrawer": () => Promise<void>;
         "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'light' | 'dark';
     }
     interface PrmPlayground {

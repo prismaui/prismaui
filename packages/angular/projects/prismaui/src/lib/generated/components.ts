@@ -60,7 +60,8 @@ export declare interface PrmButtonGroup extends Components.PrmButtonGroup {
 
 
 @ProxyCmp({
-  inputs: ['animation', 'variant']
+  inputs: ['animation', 'variant'],
+  methods: ['closeDrawer']
 })
 @Component({
   selector: 'prm-drawer',

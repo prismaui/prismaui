@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter, State } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, State, Method } from '@stencil/core';
 
 @Component({
   tag: 'prm-drawer',
@@ -15,7 +15,7 @@ export class Drawer {
     this.isOpen = true;
   }
 
-  closeDrawer() {
+  @Method() async closeDrawer() {
     this.isOpen = false;
     this.onClose.emit();
   }
