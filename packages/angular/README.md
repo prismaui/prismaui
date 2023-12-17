@@ -20,16 +20,16 @@ yarn add @prismaui/angular
 
 To use `@prismaui/angular`, follow the steps below:
 
-1. Import the `PrmModule` from `@prismaui/angular` in your Angular module file (e.g., `app.module.ts`):
+1. Import the `PrismauiModule` from `@prismaui/angular` in your Angular module file (e.g., `app.module.ts`):
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { PrmModule } from '@prismaui/angular';
+import { PrismauiModule } from '@prismaui/angular';
 
 @NgModule({
   imports: [
     // ...
-    PrmModule,
+    PrismauiModule,
     // ...
   ],
   // ...
